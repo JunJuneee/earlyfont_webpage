@@ -1,0 +1,62 @@
+.intro,
+.introFont {
+  width: 80%;
+  margin: auto;
+}
+
+.intro_content {
+  margin-top: 2rem;
+}
+.intro_content > img {
+  width: 100%;
+  height: 20rem;
+  object-position: center center;
+}
+.intro_content_texts {
+  margin-top: 2rem;
+  text-align: center;
+}
+.intro_content_texts > h2 {
+  margin-bottom: 2rem;
+}
+
+.intro_detail {
+  display: flex;
+  margin-top: 3rem;
+}
+.intro_detail_texts {
+  /* padding-right: 2rem; */
+  flex: 1;
+}
+.intro_detail_texts > h2,
+.intro_detail_texts > p {
+  padding: 0 1rem;
+}
+.intro_detail > img {
+  width: 50%;
+  height: 200px;
+  flex: 1;
+}
+.intro_bottom_text {
+  margin: 2rem 0;
+  text-align: center;
+  font-weight: 600;
+}
+.introFont_moveLink {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 2rem;
+}
+.introFont_moveLink > a {
+  text-decoration: none;
+  color: grey;
+}
+/* 
+.intro_content_texts > h2 {
+  color: white;
+  background: url("https://i.stack.imgur.com/QqRWG.jpg") no-repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 200px;
+}
+ */

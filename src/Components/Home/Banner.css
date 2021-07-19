@@ -1,0 +1,218 @@
+.banner {
+  /* height: calc(100vh - 80px); */
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  margin-top: -80px;
+  overflow: hidden;
+  z-index: 1;
+}
+.banner_starBg {
+  background: black
+    url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png) repeat;
+  height: 200px;
+  position: absolute;
+  top: 0;
+}
+.banner > .banner_bg {
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.banner > .banner_star {
+  position: absolute;
+  z-index: 10;
+  user-select: auto;
+  left: 80%;
+  top: 10%;
+  height: 10rem;
+}
+.elly > img {
+  position: fixed;
+  top: 50%;
+  z-index: 100;
+  left: 50%;
+}
+.banner_carousel {
+  height: 100%;
+  position: relative;
+}
+.banner_paper {
+  height: 100%;
+}
+.benner_picture {
+  height: 100vh;
+  width: 100%;
+  object-fit: cover;
+}
+.mouse {
+  max-width: 2.5rem;
+  width: 100%;
+  height: auto;
+}
+.scroll {
+  animation-name: scroll;
+  animation-duration: 1.5s;
+  animation-timing-function: cubic-bezier(0.65, -0.55, 0.25, 1.5);
+  animation-iteration-count: infinite;
+  transform-origin: 50% 20.5px;
+  will-change: transform, opacity;
+  opacity: 1;
+}
+
+.scroll-link {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 80%;
+  height: fit-content;
+}
+.st0 {
+  fill: #ffffff;
+}
+.st1 {
+  opacity: 0.8;
+  fill: #ffffff;
+}
+.st2 {
+  opacity: 0.6;
+  fill: #ffffff;
+}
+.st3 {
+  opacity: 0.4;
+  fill: #ffffff;
+}
+.glow {
+  animation-name: glow;
+  animation-duration: 20s;
+  /* animation-timing-function: cubic-bezier(0.65, -0.55, 0.25, 1.5); */
+  animation-iteration-count: infinite;
+  /* transform-origin: 50% 20.5px; */
+  will-change: transform, opacity;
+  opacity: 1;
+}
+@keyframes glow {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.1, 1.1);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+@keyframes scroll {
+  0%,
+  20% {
+    transform: translateY(0) scaleY(1);
+  }
+
+  100% {
+    transform: translateY(36px) scaleY(2);
+    opacity: 0;
+  }
+}
+
+@keyframes move-background {
+  from {
+    -webkit-transform: translate3d(0px, 0px, 0px);
+  }
+  to {
+    -webkit-transform: translate3d(1000px, 0px, 0px);
+  }
+}
+@-webkit-keyframes move-background {
+  from {
+    -webkit-transform: translate3d(0px, 0px, 0px);
+  }
+  to {
+    -webkit-transform: translate3d(1000px, 0px, 0px);
+  }
+}
+
+@-moz-keyframes move-background {
+  from {
+    -webkit-transform: translate3d(0px, 0px, 0px);
+  }
+  to {
+    -webkit-transform: translate3d(1000px, 0px, 0px);
+  }
+}
+
+@-webkit-keyframes move-background {
+  from {
+    -webkit-transform: translate3d(0px, 0px, 0px);
+  }
+  to {
+    -webkit-transform: translate3d(1000px, 0px, 0px);
+  }
+}
+
+/* .background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+} */
+
+.banner_stars {
+  background: transparent
+    url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png) repeat;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: block;
+  z-index: 0;
+  height: 50%;
+}
+
+.twinkling {
+  width: 10000px;
+  height: 50%;
+  /* background: transparent
+    url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/twinkling.png")
+    repeat; */
+  background-size: 1000px 1000px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+
+  -moz-animation: move-background 70s linear infinite;
+  -ms-animation: move-background 70s linear infinite;
+  -o-animation: move-background 70s linear infinite;
+  -webkit-animation: move-background 70s linear infinite;
+  animation: move-background 70s linear infinite;
+}
+
+.clouds {
+  width: 10000px;
+  height: 60%;
+  background: transparent url("./Images/clouds_repeat.png") repeat;
+  background-size: 1000px 600px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 3;
+  opacity: 0.5;
+
+  -moz-animation: move-background 150s linear infinite;
+  -ms-animation: move-background 150s linear infinite;
+  -o-animation: move-background 150s linear infinite;
+  -webkit-animation: move-background 150s linear infinite;
+  animation: move-background 150s linear infinite;
+}
+/* img {
+  height: 70vh;
+  width: 70vh;
+  position: absolute;
+  z-index: 3;
+  right: 20px;
+} */

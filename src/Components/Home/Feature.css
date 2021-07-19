@@ -1,0 +1,29 @@
+.feature {
+  background-color: #1b1b63;
+  position: relative;
+  padding-bottom: 5%;
+}
+
+.feature_main {
+  width: 80%;
+  margin: auto;
+  color: white;
+  text-align: right;
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.feature_main > img {
+  width: 800px;
+  position: relative;
+  z-index: 2;
+}
+.feature_main_text {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+.feature_main_text > h2 {
+  margin: 2rem 0;
+}

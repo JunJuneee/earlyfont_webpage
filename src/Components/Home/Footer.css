@@ -1,0 +1,24 @@
+.footer {
+  background: #d6d2c4;
+  padding: 2rem;
+}
+.text_center {
+  text-align: center;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+.footer_container {
+  display: flex;
+  justify-content: space-around;
+}
+.footer_right {
+  display: flex;
+  align-items: center;
+}
+.footer_right_texts {
+  margin-left: 2rem;
+}
+.footer_right > img {
+  width: 75px;
+  height: 75px;
+}

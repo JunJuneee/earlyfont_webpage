@@ -1,0 +1,123 @@
+.content {
+  height: 40vh;
+  width: 100%;
+  position: relative;
+  padding: 15rem 0;
+}
+.content_title {
+  display: flex;
+  width: 40%;
+  margin: auto;
+  justify-content: space-evenly;
+  position: relative;
+}
+.content_title > p::before {
+  content: "";
+  height: 20px;
+  width: 150px;
+  background-image: url(./Images/circle.svg);
+  position: absolute;
+  top: 100%;
+}
+.content_title::before {
+  content: "";
+  background-image: url("./Images/bubble.png");
+  background-size: 100% 100%;
+  left: 122%;
+  position: absolute;
+  top: -130%;
+  opacity: 0.5;
+  height: 500px;
+  width: 300px;
+}
+.content_title > p {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 2rem 0;
+  background: #181863;
+  border-radius: 50%;
+  color: white;
+  width: 200px;
+  height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content_text {
+  text-align: center;
+  margin-top: 5rem;
+  line-height: 2rem;
+  font-size: 1.5rem;
+  position: relative;
+  line-height: 3rem;
+  background-color: white;
+  font-weight: 600;
+}
+.content_text::before {
+  content: "";
+  background-image: url("./Images/bubble2.png");
+  background-size: 100% 100%;
+  left: 0%;
+  position: absolute;
+  top: -150%;
+  opacity: 0.5;
+  height: 500px;
+  width: 300px;
+}
+.content_star {
+  height: 200px;
+  position: absolute;
+  left: 45%;
+  top: 0px;
+  animation: rotate 5s linear infinite;
+  z-index: 0;
+}
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.content_bubbles {
+  display: flex;
+  justify-content: space-around;
+}
+.content_bubble {
+  height: 100px;
+  width: 100px;
+  background: transparent url("./Images/moving_bubble.png") no-repeat;
+  z-index: 0;
+  background-size: 100%;
+
+  -moz-animation: bubble_effect 5s linear infinite;
+  -ms-animation: bubble_effect 5s linear infinite;
+  -o-animation: bubble_effect 5s linear infinite;
+  -webkit-animation: bubble_effect 5s linear infinite;
+  animation: bubble_effect 5s linear infinite;
+}
+.content_bubble2 {
+  height: 100px;
+  width: 100px;
+  background: transparent url("./Images/moving_bubble.png") no-repeat;
+  z-index: 0;
+  background-size: 100%;
+  -moz-animation: bubble_effect 5s linear infinite;
+  -ms-animation: bubble_effect 5s linear infinite;
+  -o-animation: bubble_effect 5s linear infinite;
+  -webkit-animation: bubble_effect 5s linear infinite;
+  animation: bubble_effect 5s linear infinite;
+  animation-delay: 0.5s;
+}
+
+@keyframes bubble_effect {
+  from {
+    -webkit-transform: translate3d(0px, 0px, 0px);
+  }
+  50% {
+    -webkit-transform: translate3d(100px, -20vh, 0px);
+  }
+  to {
+    -webkit-transform: translate3d(0px, -80vh, 0px);
+  }
+}
