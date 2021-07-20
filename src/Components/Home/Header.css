@@ -3,8 +3,13 @@
   position: sticky;
   top: 0px;
   width: 100%;
-  z-index: 100;
-  background-color: transparent;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  z-index: 999;
+  overflow: hidden;
 }
 
 .header_container {
@@ -19,6 +24,35 @@
   display: flex;
   flex: 1;
   justify-content: flex-end;
+}
+.nav_items > .bars {
+  /* color: #cc3333; */
+  font-size: 40px;
+  line-height: 80px;
+  position: relative;
+  top: -17px;
+  left: 20px;
+}
+.nav_menu {
+  display: none;
+}
+.nav_menu {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 93vh;
+  position: absolute;
+  top: 60px;
+  right: -100%;
+  opacity: 1;
+  transition: all 0.5s ease;
+}
+.nav_menu.active {
+  background: #242222;
+  left: 50%;
+  opacity: 1;
+  transition: all 0.5s ease;
+  z-index: 1;
 }
 .nav_item {
   list-style: none;

@@ -5,16 +5,19 @@ import "./Content.css";
 function Content(props) {
   const star = useRef();
   const boxScroll = useRef();
+  const [tornado, setTornado] = useState("");
   const [styles, setStyles] = useState({});
   let scrollY = 0;
   const handleScroll = () => {
     const currentScrollY = window.scrollY;
-
-    if (boxScroll.current.clientHeight < currentScrollY) {
-      scrollY = currentScrollY - boxScroll.current.clientHeight + 100;
+    scrollY = currentScrollY - boxScroll.current.clientHeight;
+    if (boxScroll.current.clientHeight < currentScrollY + 150) {
       setStyles({
-        top: `${scrollY}px`,
+        top: `${scrollY + 200}px`,
       });
+    }
+    if (scrollY > 0) {
+      setTornado("content_tornado");
     }
   };
 
@@ -25,12 +28,7 @@ function Content(props) {
     };
   });
   return (
-    <div className="content" ref={boxScroll}>
-      {/* <img
-        src="Images/banner_bg_bottom.png
-      "
-        alt=""
-      /> */}
+    <div className={`content ${tornado}`} ref={boxScroll}>
       <img
         className="content_star"
         style={styles}

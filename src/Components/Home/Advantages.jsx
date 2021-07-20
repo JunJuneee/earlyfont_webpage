@@ -47,8 +47,8 @@ function Advantages(props) {
   });
   return (
     <div className="advantages">
-      <div ref={fast_div} className=" advantage_container_fast">
-        <div className="advantage_container">
+      <div ref={fast_div} className="advantage_container_fast">
+        <div className="advantage_container bubble_right bubble_left">
           <h1>빠르다</h1>
           <p>디자인 자유도를 극대화하는 독자적인 한글 조합 기술로</p>
           <p>경쟁사 대비 10배 빠르게 </p>

@@ -27,17 +27,7 @@ function Banner(props) {
     <div className="banner">
       <div className="banner_stars glow"></div>
       <div class="twinkling"></div>
-      <div class="clouds"></div>
-      {/* <img
-        className="banner_stars"
-        src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png"
-        alt=""
-      /> */}
-      {/* <img
-        className="twinkling"
-        src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/twinkling.png"
-        alt=""
-      /> */}
+      {/* <div class="clouds"></div> */}
       <img className="banner_bg" src="Images/banner_bg.png" alt="" />
       <img
         className="banner_star"
