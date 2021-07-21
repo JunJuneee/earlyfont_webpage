@@ -1,7 +1,5 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import "./Banner.css";
-import { useEffect } from "react";
-import { useState } from "react";
 
 function Banner(props) {
   const star = useRef();
@@ -11,8 +9,9 @@ function Banner(props) {
     // console.log(star.current.x);
     // // star.current.x = 300;
     setStyles({
-      transform: "translate(-70vh,100vh) scale(2,2)  ",
-      transition: "transform 2s ease-in-out ",
+      opacity: "0",
+      transform: "translate(-70vh,100vh) scale(2,2) ",
+      transition: "opacity 2s ease-in-out, transform 2s ease-in-out ",
     });
   };
   useEffect(() => {

@@ -25,18 +25,24 @@ function Advantages(props) {
 
   const handleScroll = () => {
     const currentScrollY = window.scrollY;
+    // console.log(fast_div.current.offsetTop);
+    // console.log(fast_div.current.offsetTop / scrollHeight + 100);
+
+    // console.log(pretty_div.current.offsetTop + scrollHeight);
+    // let num = parseInt(
+    //   (1 -
+    //     (pretty_div.current.offsetTop - scrollHeight - currentScrollY) /
+    //       (pretty_div.current.offsetTop + scrollHeight + 48)) *
+    //     100
+    // );
     let num = parseInt(
-      (1 -
-        (pretty_div.current.offsetTop -
-          fast_div.current.offsetHeight -
-          fast_div.current.offsetTop) /
-          (scrollHeight / 2 + 50)) *
-        100
+      (fast_div.current.offsetTop / (scrollHeight - 401)) * 100
     );
+    console.log(num);
     if (num > 0 && num < 100) {
       setDay(parseInt(num / 10) + 1);
       setPicNum(parseInt(num / 10) + 1);
-      setLeft(((fast_div.current.clientWidth + 50) * num) / 100 - 80);
+      setLeft((fast_div.current.clientWidth * num) / 100);
     }
   };
   useEffect(() => {
@@ -47,8 +53,11 @@ function Advantages(props) {
   });
   return (
     <div className="advantages">
-      <div ref={fast_div} className="advantage_container_fast">
-        <div className="advantage_container bubble_right bubble_left">
+      <div className="advantage_container">
+        <div
+          ref={fast_div}
+          className="advantage_container_fast bubble_right bubble_left"
+        >
           <h1>빠르다</h1>
           <p>디자인 자유도를 극대화하는 독자적인 한글 조합 기술로</p>
           <p>경쟁사 대비 10배 빠르게 </p>
@@ -77,6 +86,13 @@ function Advantages(props) {
         <h1>예쁘다</h1>
         <p>좋은 브랜드를 연구하던 글자덕후들이</p>
         <p>정교한 제작과정을 거쳐 아름다운 글자를 만듭니다.</p>
+        <img
+          src="/Images/adv_pretty.png"
+          width="500px"
+          height="3000px"
+          alt=""
+          srcset=""
+        />
       </div>
       <div className="advantage_container">
         <h1>저렴하다</h1>

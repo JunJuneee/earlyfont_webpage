@@ -4,7 +4,19 @@
   width: 100%;
   position: relative;
   margin-top: -80px;
-  overflow: hidden;
+  /* overflow: hidden; */
+  z-index: 1;
+  overflow-x: clip;
+}
+.banner::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  background-image: url(./Images/banner_bg_bottom.png);
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
   z-index: 1;
 }
 .banner_starBg {
@@ -22,7 +34,6 @@
 .banner > .banner_star {
   position: absolute;
   z-index: 10;
-  user-select: auto;
   left: 80%;
   top: 10%;
   height: 10rem;
@@ -67,6 +78,7 @@
   transform: translateX(-50%);
   top: 80%;
   height: fit-content;
+  cursor: unset;
 }
 .st0 {
   fill: #ffffff;
@@ -150,14 +162,6 @@
   }
 }
 
-/* .background-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-} */
-
 .banner_stars {
   background: transparent
     url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png) repeat;
@@ -170,49 +174,11 @@
   z-index: 0;
   height: 50%;
 }
-
-.twinkling {
-  width: 10000px;
-  height: 50%;
-  /* background: transparent
-    url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/twinkling.png")
-    repeat; */
-  background-size: 1000px 1000px;
-  position: absolute;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  z-index: 2;
-
-  -moz-animation: move-background 70s linear infinite;
-  -ms-animation: move-background 70s linear infinite;
-  -o-animation: move-background 70s linear infinite;
-  -webkit-animation: move-background 70s linear infinite;
-  animation: move-background 70s linear infinite;
+@keyframes banner_starts {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
-
-.clouds {
-  width: 10000px;
-  height: 60%;
-  background: transparent url("./Images/clouds_repeat.png") repeat;
-  background-size: 1000px 600px;
-  position: absolute;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  z-index: 3;
-  opacity: 0.5;
-
-  -moz-animation: move-background 150s linear infinite;
-  -ms-animation: move-background 150s linear infinite;
-  -o-animation: move-background 150s linear infinite;
-  -webkit-animation: move-background 150s linear infinite;
-  animation: move-background 150s linear infinite;
-}
-/* img {
-  height: 70vh;
-  width: 70vh;
-  position: absolute;
-  z-index: 3;
-  right: 20px;
-} */
