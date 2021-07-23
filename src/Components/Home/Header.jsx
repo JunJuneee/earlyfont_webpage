@@ -1,46 +1,40 @@
 import React, { useEffect, useRef, useState } from "react";
-import logo from "../../Images/logo.png";
+import logo from "./Images/logo.png";
 import "./Header.css";
-import Dropdown from "./Dropdown";
-import { Link, useHistory } from "react-router-dom";
+import { Link, NavLink, useHistory } from "react-router-dom";
 import { MenuOutlined, Clear } from "@material-ui/icons";
 
 function Header() {
-  const currentScrollY = window.scrollY;
   const ref = useRef();
-
-  useEffect(() => {
-    if (currentScrollY > 80) {
+  const [fontColor, setFontColoe] = useState({ color: "white" });
+  const handleNav = () => {
+    let currentScrollY = window.scrollY;
+    if (currentScrollY < 60) {
       ref.current.style.backgroundColor = "transparent";
+      setFontColoe({ color: "white" });
+    } else {
+      ref.current.style.backgroundColor = "white";
+      setFontColoe({ color: "rgb(024, 024, 99)" });
     }
-    console.log(currentScrollY);
-  }, [currentScrollY]);
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", handleNav);
+    return () => {
+      window.removeEventListener("scroll", handleNav);
+    };
+  });
+
   const showSettings = (e) => {
     e.preventDefault();
   };
 
-  const [dropdown, setDropdown] = useState(false);
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
 
   const closeMenu = () => {
     setClick(false);
   };
-  const onMouseEnter = () => {
-    if (window.innerWidth < 960) {
-      setDropdown(false);
-    } else {
-      setDropdown(true);
-    }
-  };
 
-  const onMouseLeave = () => {
-    if (window.innerWidth < 960) {
-      setDropdown(false);
-    } else {
-      setDropdown(false);
-    }
-  };
   const showButton = () => {
     if (window.innerWidth <= 960) {
       setButton(false);
@@ -67,23 +61,43 @@ function Header() {
             <MenuOutlined className="bars" />
           )}
         </div>
-        <ul className={click ? "nav_menu active" : "nav_menu"}>
-          <li className="nav_item" onClick={closeMenu}>
-            <Link to="/intro">얼리폰트의 꿈</Link>
-          </li>
-
-          <li
+        <ul className="nav_menu">
+          <NavLink
+            to="/intro"
+            style={fontColor}
+            activeClassName="active"
             className="nav_item"
             onClick={closeMenu}
-            onMouseEnter={onMouseEnter}
-            onMouseLeave={onMouseLeave}
           >
-            <Link to="/intro_font ">전용서체 소개</Link>
-            {dropdown && <Dropdown />}
-          </li>
-          <li className="nav_item" onClick={closeMenu}>
-            <Link>문의하기</Link>
-          </li>
+            폰트브랜딩
+          </NavLink>
+          <NavLink
+            to="/portfolio"
+            style={fontColor}
+            activeClassName="active"
+            className="nav_item"
+            onClick={closeMenu}
+          >
+            포트폴리오
+          </NavLink>
+          <NavLink
+            to="/estimate"
+            style={fontColor}
+            activeClassName="active"
+            className="nav_item"
+            onClick={closeMenu}
+          >
+            견적다운로드
+          </NavLink>
+          <NavLink
+            to="/portfolio"
+            style={fontColor}
+            activeClassName="active"
+            className="nav_item"
+            onClick={closeMenu}
+          >
+            문의하기
+          </NavLink>
         </ul>
       </div>
     </div>

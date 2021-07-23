@@ -19,6 +19,15 @@
   width: 40%;
   margin: auto;
 }
+.advantage_container_fast > h1 {
+  margin: 2rem 0;
+  color: #1b1b63;
+  font-family: "S-CoreDream-6Bold";
+}
+.advantage_container_fast > p,
+.advantage_container {
+  font-size: 1.2rem;
+}
 
 .bubble_right::after {
   content: "";
@@ -54,18 +63,18 @@
 }
 .advantage_texts::before {
   content: "";
-  width: 100%;
+  width: 85%;
   height: 4px;
-  left: 0;
+  left: 10%;
   background-color: rgb(210, 210, 222);
   position: absolute;
 }
 .advantage_text_fast {
-  width: fit-content;
+  width: 100%;
+  max-width: 185px;
   text-align: center;
   position: absolute;
   top: -25px;
-  left: -27px;
 }
 .advantage_text_fast_time {
   width: fit-content;
@@ -83,13 +92,7 @@
   background: rgb(237, 238, 234);
   padding: 4rem 0;
 }
-.advantage_container_pretty > img {
-  margin-top: 3rem;
-  max-width: 350px;
-  max-height: 500px;
-  width: 100%;
-  height: 100%;
-}
+
 @-webkit-keyframes fade_in {
   0% {
     display: none;
@@ -176,3 +179,104 @@
   border: 1px solid red;
   border-radius: 200px;
 } */
+.advantage_container_pretty_img {
+  margin: 3rem auto auto;
+  position: relative;
+  width: fit-content;
+}
+.advantage_container_pretty_img > img {
+  max-width: 450px;
+  max-height: 650px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.point_line {
+  position: absolute;
+  width: 250px;
+}
+.pointer_1 {
+  top: 1%;
+  left: 73%;
+}
+.pointer_2 {
+  top: 24%;
+  left: -8.5%;
+}
+.pointer_3 {
+  top: 74%;
+  left: 56%;
+}
+.adv_circle {
+  fill: blue;
+  opacity: 0.35;
+  animation: blink 2s ease-in infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+.pointer_1 > polyline {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: dash 3s linear 0s infinite;
+}
+.pointer_2 > polyline {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: dash 3s linear 0.5s infinite;
+}
+.pointer_3 > line {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: dash 3s linear 1s infinite;
+}
+.point_line_texts {
+  position: absolute;
+  width: fit-content;
+  text-align: left;
+}
+.point_line_texts > h3 {
+  color: #1b1b63;
+}
+.point_line1_text {
+  top: 3%;
+  left: 114%;
+}
+
+.point_line2_text {
+  top: 22%;
+  left: -75%;
+}
+.point_line3_text {
+  top: 76%;
+  left: 115%;
+}
+
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+.advantege_cheap_img {
+  margin-top: 5rem;
+  position: relative;
+}
+.advantege_cheap_img > img {
+  max-width: 400px;
+  max-height: 400px;
+  width: 100%;
+  height: 100%;
+}
+.advantege_cheap_img > img:last-child {
+  position: absolute;
+  left: 30%;
+  max-width: 600px;
+  max-height: 600px;
+}

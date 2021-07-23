@@ -1,5 +1,5 @@
-.header {
-  height: 80px;
+.header:not(.home) {
+  height: 60px;
   position: sticky;
   top: 0px;
   width: 100%;
@@ -10,7 +10,7 @@
   font-size: 1.2rem;
   z-index: 999;
   overflow: hidden;
-  background: #1b1b63;
+  background: transparent;
 }
 
 .header_container {
@@ -18,7 +18,6 @@
   width: 95%;
   margin: auto;
   align-items: center;
-  color: white;
 }
 
 .nav_items {
@@ -45,17 +44,17 @@
   opacity: 1;
   transition: all 0.5s ease;
 }
-.nav_menu.active {
-  background: #242222;
-  left: 50%;
-  opacity: 1;
-  transition: all 0.5s ease;
-  z-index: 1;
+
+.nav_menu .active {
+  color: black;
 }
 .nav_item {
   list-style: none;
   margin-left: 1rem;
-  line-height: 80px;
+  line-height: 60px;
+  text-decoration: none;
+  color: rgb(024, 024, 99);
+  font-family: "S-CoreDream-6Bold";
 }
 .nav_item > a {
   text-decoration: none;

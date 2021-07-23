@@ -10,13 +10,18 @@ function Content(props) {
   let scrollY = 0;
   const handleScroll = () => {
     const currentScrollY = window.scrollY;
+
     scrollY = currentScrollY - boxScroll.current.clientHeight;
     if (boxScroll.current.clientHeight < currentScrollY + 150) {
       setStyles({
-        top: `${scrollY + 200}px`,
+        top: `${scrollY + 400}px`,
+      });
+    } else {
+      setStyles({
+        top: `${-150}px`,
       });
     }
-    if (scrollY > 0) {
+    if (scrollY > -550) {
       setTornado("content_tornado");
     }
   };

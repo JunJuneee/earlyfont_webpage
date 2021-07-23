@@ -19,6 +19,17 @@
   background-size: contain;
   z-index: 1;
 }
+.Typewriter {
+  position: absolute;
+  z-index: 100;
+  top: 25%;
+  left: 40%;
+  font-size: 4rem;
+  color: white;
+}
+.Typewriter__wrapper {
+  font-family: "S-CoreDream-6Bold";
+}
 .banner_starBg {
   background: black
     url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png) repeat;

@@ -1,13 +1,12 @@
 import React, { useRef, useState, useEffect } from "react";
+import Typewriter from "typewriter-effect";
+
 import "./Banner.css";
 
 function Banner(props) {
   const star = useRef();
   const [styles, setStyles] = useState();
   const handleScroll = () => {
-    // // star.current.height = star.current.height - 50;
-    // console.log(star.current.x);
-    // // star.current.x = 300;
     setStyles({
       opacity: "0",
       transform: "translate(-70vh,100vh) scale(2,2) ",
@@ -24,9 +23,22 @@ function Banner(props) {
 
   return (
     <div className="banner">
+      <Typewriter
+        options={{ autoStart: true }}
+        onInit={(typewriter) => {
+          typewriter
+            .typeString("얼리폰트는")
+            .pauseFor(1000)
+            .typeString("<br/>브랜드를 강화하는")
+            .pauseFor(1000)
+            .typeString("<br/>폰트를 만듭니다")
+            .pauseFor(1000)
+            // .deleteAll()
+            .start();
+        }}
+      />
       <div className="banner_stars glow"></div>
       <div class="twinkling"></div>
-      {/* <div class="clouds"></div> */}
       <img className="banner_bg" src="Images/banner_bg.png" alt="" />
       <img
         className="banner_star"
