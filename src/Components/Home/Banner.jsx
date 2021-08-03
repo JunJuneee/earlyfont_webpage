@@ -9,7 +9,7 @@ function Banner(props) {
   const handleScroll = () => {
     setStyles({
       opacity: "0",
-      transform: "translate(-70vh,100vh) scale(2,2) ",
+      transform: "translate(-70vh,80vh) scale(2,2) ",
       transition: "opacity 2s ease-in-out, transform 2s ease-in-out ",
     });
   };
@@ -28,12 +28,11 @@ function Banner(props) {
         onInit={(typewriter) => {
           typewriter
             .typeString("얼리폰트는")
-            .pauseFor(1000)
+            .pauseFor(500)
             .typeString("<br/>브랜드를 강화하는")
-            .pauseFor(1000)
+            .pauseFor(500)
             .typeString("<br/>폰트를 만듭니다")
-            .pauseFor(1000)
-            // .deleteAll()
+            .pauseFor(500)
             .start();
         }}
       />

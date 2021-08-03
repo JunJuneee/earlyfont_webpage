@@ -2,27 +2,32 @@ import React, { useRef, useEffect } from "react";
 import { useState } from "react";
 import "./Content.css";
 
-function Content(props) {
+function Content({ starEndHeight }) {
   const star = useRef();
   const boxScroll = useRef();
-  const [tornado, setTornado] = useState("");
   const [styles, setStyles] = useState({});
+
   let scrollY = 0;
+
   const handleScroll = () => {
     const currentScrollY = window.scrollY;
-
+    const fullHeight = document.documentElement.clientWidth;
     scrollY = currentScrollY - boxScroll.current.clientHeight;
-    if (boxScroll.current.clientHeight < currentScrollY + 150) {
+    let adjustTop =
+      window.innerWidth <= 960 ? -fullHeight * 0.35 : fullHeight * 0.17;
+
+    if (currentScrollY >= starEndHeight.current.offsetTop - adjustTop) {
       setStyles({
-        top: `${scrollY + 400}px`,
+        top: `${star.current.offsetTop}px`,
+      });
+    } else if (boxScroll.current.clientHeight < currentScrollY + 150) {
+      setStyles({
+        top: `${scrollY + 100}px`,
       });
     } else {
       setStyles({
-        top: `${-150}px`,
+        top: `${-50}px`,
       });
-    }
-    if (scrollY > -550) {
-      setTornado("content_tornado");
     }
   };
 
@@ -33,7 +38,7 @@ function Content(props) {
     };
   });
   return (
-    <div className={`content ${tornado}`} ref={boxScroll}>
+    <div className="content" ref={boxScroll}>
       <img
         className="content_star"
         style={styles}

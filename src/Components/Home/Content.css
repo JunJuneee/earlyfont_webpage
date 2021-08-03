@@ -2,7 +2,7 @@
   height: 40vh;
   width: 100%;
   position: relative;
-  padding: 35rem 0 10rem;
+  padding: 20rem 0 10rem;
   z-index: 0;
 }
 .content::before {
@@ -14,23 +14,7 @@
   height: 100%;
   background-repeat: no-repeat;
   background-size: contain;
-  z-index: 1;
-}
-
-.content_tornado::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  background-image: url(./Images/tornado.png);
-  width: 350px;
-  height: 350px;
-  background-repeat: no-repeat;
-  background-size: contain;
-  top: 9%;
-  left: 41%;
-  z-index: 0;
-  animation: tornado_effect 2s linear;
-  opacity: 1;
+  z-index: 2;
 }
 
 .content_top_bg {
@@ -78,17 +62,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: "S-CoreDream-6Bold";
+  z-index: 2;
 }
 
 .content_text {
   text-align: center;
   margin-top: 5rem;
-  line-height: 2rem;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   position: relative;
-  line-height: 3rem;
-  background-color: white;
   font-weight: 600;
+  z-index: 2;
 }
 .content_text::before {
   content: "";
@@ -103,12 +87,12 @@
 }
 
 .content_star {
-  height: 200px;
+  height: 150px;
   position: absolute;
-  left: 45%;
+  left: 46.5%;
   top: -50px;
   animation: rotate 8s linear infinite;
-  z-index: 0;
+  z-index: 1;
 }
 @keyframes rotate {
   100% {
@@ -173,5 +157,54 @@
   to {
     transform: translateY(0px);
     opacity: 1;
+  }
+}
+@media screen and (max-width: 960px) {
+  .content {
+    padding: 15rem 0;
+  }
+  .content::before {
+    background-size: inherit;
+  }
+  .content_star {
+    left: 30%;
+  }
+  .content_title {
+    width: unset;
+  }
+
+  .content_text::before,
+  .content_title::before,
+  .advantage_container_cheap > .advantage_container_texts::before,
+  .advantege_cheap_img::after,
+  .content_bubble2 {
+    display: none;
+  }
+  .content_title > p {
+    font-size: 1.5rem;
+    width: 150px;
+    padding: 1rem 0;
+  }
+  .content_text {
+    margin: 5rem auto auto;
+    font-size: 1rem;
+    line-height: unset;
+    width: 85%;
+  }
+  .content_text > p {
+    margin: 1rem 0;
+  }
+  .feature_main {
+    padding: 3rem 0;
+  }
+  .feature_main_text > h2 {
+    font-size: 2rem;
+  }
+  .feature_main_text > p {
+    font-size: 1rem;
+  }
+  .content_bubbles {
+    display: flex;
+    justify-content: space-between;
   }
 }

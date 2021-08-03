@@ -6,41 +6,48 @@ import "./Advantages.css";
 function Advantages(props) {
   const fast_div = useRef();
   const pretty_div = useRef();
-  const scrollHeight = window.outerHeight * 2;
+  const scrollHeight = window.outerHeight * 2.2;
   const [left, setLeft] = useState(0);
   const [picNum, setPicNum] = useState(1);
   const [day, setDay] = useState(1);
+  const [mobile, setMobile] = useState(false);
   const projectName = [
     "폰트디자인 기획",
     "폰트디자인 기획",
-    "시안 제안/디벨롭",
-    "시안 제안/디벨롭",
+    "시안 제안 디벨롭",
+    "시안 제안 디벨롭",
     "최종디자인 확정",
     "확장 자소 디자인",
     "확장 자소 디자인",
-    "폰트 기획조합/디벨롭",
-    "폰트 기획조합/디벨롭",
+    "폰트 기획 조합 디벨롭",
+    `폰트 기획 조합 디벨롭`,
     "폰트납품",
   ];
   AOS.init();
   const handleScroll = () => {
-    const currentScrollY = window.scrollY;
-
     let num = parseInt(
-      (fast_div.current.offsetTop /
-        (scrollHeight - fast_div.current.clientHeight - 150)) *
+      (fast_div.current?.offsetTop /
+        (scrollHeight -
+          fast_div.current?.clientHeight -
+          window.outerHeight * 0.2 -
+          150)) *
         100
     );
-    setDay(parseInt(num / 10) + 1);
-    setPicNum(parseInt(num / 10) + 1);
-    setLeft(num * 0.87);
+
+    if (num > 0 && num < 100) {
+      setDay(parseInt(num / 10) + 1);
+      setPicNum(parseInt(num / 10) + 1);
+      setLeft(num * 0.8);
+    }
   };
+
   useEffect(() => {
+    window.innerWidth <= 960 && setMobile(true);
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  });
+  }, []);
   return (
     <div className="advantages">
       <div className="advantage_container">
@@ -53,8 +60,6 @@ function Advantages(props) {
           <p>경쟁사 대비 10배 빠르게 만듭니다.</p>
           <img
             src={`/Images/adv_fast_${picNum}.png`}
-            width="400px"
-            height="400px"
             className="advantage_fast_img"
             alt=""
             srcset=""
@@ -73,9 +78,12 @@ function Advantages(props) {
         ref={pretty_div}
         className="advantage_container advantage_container_pretty"
       >
-        <h1>예쁘다</h1>
-        <p>좋은 브랜드를 연구하던 글자덕후들이</p>
-        <p>정교한 제작과정을 거쳐 아름다운 글자를 만듭니다.</p>
+        <div className="advantage_container_texts">
+          <h1>예쁘다</h1>
+          <p>좋은 브랜드를 연구하던 글자덕후들이</p>
+          <p>정교한 제작과정을 거쳐 아름다운 글자를 만듭니다.</p>
+        </div>
+
         <div className="advantage_container_pretty_img">
           <img
             src="/Images/adv_pretty.png"
@@ -162,28 +170,28 @@ function Advantages(props) {
           </div>
         </div>
       </div>
-      <div className="advantage_container">
-        <h1>저렴하다</h1>
-        <p>
-          한글의 과학적 원리를 응용, 자동화를 통해 생산성을 최대화하였습니다.
-        </p>
-        <p>특허와 정부지원으로 완성한 혁신은</p>
-        <p>더욱 합리적인 가격으로 폰트를 제공할 수 있게 되었습니다.</p>
+      <div className="advantage_container advantage_container_cheap">
+        <div className="advantage_container_texts">
+          <h1>저렴하다</h1>
+          <p>
+            한글의 과학적 원리를 응용, 자동화를 통해 생산성을 최대화하였습니다.
+          </p>
+          <p>특허와 정부지원으로 완성한 혁신은</p>
+          <p>더욱 합리적인 가격으로 폰트를 제공할 수 있게 되었습니다.</p>
+        </div>
         <div className="advantege_cheap_img">
           <img
             data-aos="fade-right"
             data-aos-offset="500"
-            data-aos-delay="100"
-            data-aos-duration="1000"
-            src="/Images/adv_cheap_1.png"
+            data-aos-duration="700"
+            src={`/Images/${mobile ? "adv_cheap_m_1.png" : "adv_cheap_1.png"}`}
             alt=""
           />
           <img
             data-aos="fade-left"
             data-aos-offset="500"
-            data-aos-delay="200"
-            data-aos-duration="1000"
-            src="/Images/adv_cheap_2.png"
+            data-aos-duration="700"
+            src={`/Images/${mobile ? "adv_cheap_m_2.png" : "adv_cheap_2.png"}`}
             alt=""
           />
           <img src="/Images/adv_cheap_3.png" alt="" srcset="" />

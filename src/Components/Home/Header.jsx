@@ -1,22 +1,48 @@
 import React, { useEffect, useRef, useState } from "react";
-import logo from "./Images/logo.png";
 import "./Header.css";
-import { Link, NavLink, useHistory } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { MenuOutlined, Clear } from "@material-ui/icons";
 
-function Header() {
+function Header(props) {
   const ref = useRef();
-  const [fontColor, setFontColoe] = useState({ color: "white" });
+
+  const [headerColorFlip, setHeaderColorFlip] = useState(false);
+  const [click, setClick] = useState(false);
+
   const handleNav = () => {
     let currentScrollY = window.scrollY;
-    if (currentScrollY < 60) {
-      ref.current.style.backgroundColor = "transparent";
-      setFontColoe({ color: "white" });
+
+    if (
+      currentScrollY < 60 &&
+      (window.location.pathname === "/" ||
+        window.location.pathname === "/branding")
+    ) {
+      setHeaderColorFlip(true);
     } else {
-      ref.current.style.backgroundColor = "white";
-      setFontColoe({ color: "rgb(024, 024, 99)" });
+      setHeaderColorFlip(false);
+    }
+
+    if (window.innerWidth <= 960) {
+      setHeaderColorFlip(false);
     }
   };
+
+  useEffect(() => {
+    if (window.location.pathname === "/") {
+      setHeaderColorFlip(true);
+    } else {
+      setHeaderColorFlip(false);
+    }
+    if (window.innerWidth <= 960) {
+      setHeaderColorFlip(false);
+    }
+    // 사진 프리로드
+    for (let i = 1; i < 11; i++) {
+      const img = new Image();
+      img.src = `/Images/adv_fast_${i}.png`;
+    }
+  }, []);
+
   useEffect(() => {
     window.addEventListener("scroll", handleNav);
     return () => {
@@ -24,34 +50,31 @@ function Header() {
     };
   });
 
-  const showSettings = (e) => {
-    e.preventDefault();
-  };
-
-  const [click, setClick] = useState(false);
-  const [button, setButton] = useState(true);
-
   const closeMenu = () => {
     setClick(false);
+    setHeaderColorFlip(false);
   };
 
-  const showButton = () => {
-    if (window.innerWidth <= 960) {
-      setButton(false);
-    } else {
-      setButton(true);
-    }
-  };
-
-  useEffect(() => {
-    showButton();
-  }, []);
-  window.addEventListener("resize", showButton);
   return (
-    <div className="header" ref={ref}>
+    <div
+      className={
+        headerColorFlip ? "header header_bg_trans" : "header header_bg_white"
+      }
+      ref={ref}
+    >
       <div className="header_container">
-        <Link to="/">
-          <img src={logo} alt="logo" height="30px" />
+        <Link
+          to="/"
+          onClick={() => {
+            setHeaderColorFlip(true);
+            setClick(false);
+          }}
+        >
+          <img
+            src={`/Images/logo_${headerColorFlip ? "white" : "blue"}.png`}
+            alt="logo"
+            height="30px"
+          />
         </Link>
 
         <div className="nav_icon" onClick={() => setClick(!click)}>
@@ -61,42 +84,43 @@ function Header() {
             <MenuOutlined className="bars" />
           )}
         </div>
-        <ul className="nav_menu">
+        <ul className={click ? "nav_menu active" : "nav_menu"}>
           <NavLink
-            to="/intro"
-            style={fontColor}
-            activeClassName="active"
-            className="nav_item"
+            to="/branding"
+            activeClassName="selected"
+            className={
+              headerColorFlip
+                ? "nav_item nav_item_white"
+                : "nav_item nav_item_blue"
+            }
             onClick={closeMenu}
           >
-            폰트브랜딩
+            타이포브랜딩
           </NavLink>
           <NavLink
             to="/portfolio"
-            style={fontColor}
-            activeClassName="active"
-            className="nav_item"
+            activeClassName="selected"
+            className={
+              headerColorFlip
+                ? "nav_item nav_item_white"
+                : "nav_item nav_item_blue"
+            }
             onClick={closeMenu}
           >
             포트폴리오
           </NavLink>
           <NavLink
             to="/estimate"
-            style={fontColor}
-            activeClassName="active"
-            className="nav_item"
+            // style={fontColor}
+            activeClassName="selected"
+            className={
+              headerColorFlip
+                ? "nav_item nav_item_white"
+                : "nav_item nav_item_blue"
+            }
             onClick={closeMenu}
           >
-            견적다운로드
-          </NavLink>
-          <NavLink
-            to="/portfolio"
-            style={fontColor}
-            activeClassName="active"
-            className="nav_item"
-            onClick={closeMenu}
-          >
-            문의하기
+            견적문의
           </NavLink>
         </ul>
       </div>

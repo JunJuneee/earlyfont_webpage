@@ -4,7 +4,7 @@
   width: 100%;
   position: relative;
   margin-top: -80px;
-  /* overflow: hidden; */
+  overflow: hidden;
   z-index: 1;
   overflow-x: clip;
 }
@@ -23,7 +23,7 @@
   position: absolute;
   z-index: 100;
   top: 25%;
-  left: 40%;
+  left: 23%;
   font-size: 4rem;
   color: white;
 }
@@ -138,41 +138,6 @@
   }
 }
 
-@keyframes move-background {
-  from {
-    -webkit-transform: translate3d(0px, 0px, 0px);
-  }
-  to {
-    -webkit-transform: translate3d(1000px, 0px, 0px);
-  }
-}
-@-webkit-keyframes move-background {
-  from {
-    -webkit-transform: translate3d(0px, 0px, 0px);
-  }
-  to {
-    -webkit-transform: translate3d(1000px, 0px, 0px);
-  }
-}
-
-@-moz-keyframes move-background {
-  from {
-    -webkit-transform: translate3d(0px, 0px, 0px);
-  }
-  to {
-    -webkit-transform: translate3d(1000px, 0px, 0px);
-  }
-}
-
-@-webkit-keyframes move-background {
-  from {
-    -webkit-transform: translate3d(0px, 0px, 0px);
-  }
-  to {
-    -webkit-transform: translate3d(1000px, 0px, 0px);
-  }
-}
-
 .banner_stars {
   background: transparent
     url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png) repeat;
@@ -191,5 +156,14 @@
   }
   to {
     opacity: 0;
+  }
+}
+@media screen and (max-width: 960px) {
+  .Typewriter {
+    font-size: 2rem;
+    left: 11%;
+  }
+  .banner > .banner_bg {
+    width: unset;
   }
 }

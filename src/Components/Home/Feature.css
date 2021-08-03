@@ -1,7 +1,7 @@
 .feature {
   background-color: #1b1b63;
   position: relative;
-  padding-bottom: 5%;
+  padding: 10rem 0;
 }
 
 .feature_main {
@@ -16,9 +16,11 @@
 }
 
 .feature_main > img {
-  width: 800px;
+  width: 100%;
   position: relative;
   z-index: 2;
+  margin: 3rem 2rem 0;
+  max-width: 700px;
 }
 .feature_main_text {
   position: relative;
@@ -26,7 +28,29 @@
   text-align: center;
 }
 
-.feature_main_text > h2 {
-  margin: 2rem 0;
+.feature_main_text > h3 {
+  margin: 5rem 0;
   font-family: "S-CoreDream-6Bold";
+}
+.feature_main_text > p {
+  font-size: 1.2rem;
+}
+@media screen and (max-width: 960px) {
+  .feature {
+    padding: 2rem 0;
+  }
+  .feature_main_text > h3 {
+    margin: 4rem 0;
+  }
+  .feature_main_text > p {
+    margin: 1rem 0;
+  }
+  .feature_main > img {
+    width: 120%;
+    margin: 0;
+  }
+
+  .advantage_text_fast {
+    width: fit-content;
+  }
 }

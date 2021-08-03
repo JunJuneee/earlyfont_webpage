@@ -3,15 +3,19 @@ import Banner from "./Home/Banner";
 import Content from "./Home/Content";
 import Feature from "./Home/Feature";
 import Advantages from "./Home/Advantages";
+import End from "./Home/End";
+import { useState } from "react";
 
-function Home(props) {
+function Home() {
+  const [starEndHeight, setStarEndHeight] = useState(0);
   return (
-    <div>
+    <>
       <Banner />
-      <Content />
+      <Content starEndHeight={starEndHeight} />
       <Feature />
       <Advantages />
-    </div>
+      <End setStarEndHeight={setStarEndHeight} />
+    </>
   );
 }
 

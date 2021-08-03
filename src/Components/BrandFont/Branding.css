@@ -1,0 +1,269 @@
+.branding {
+  width: 100%;
+}
+.branding_banner {
+  background: #1b1b63;
+  color: white;
+  margin: auto;
+  text-align: center;
+  padding: 7rem 0;
+  margin-top: -80px;
+}
+.branding_banner > h1 {
+  font-family: "S-CoreDream-6Bold";
+  position: relative;
+  width: fit-content;
+  margin: 0 auto 2rem;
+}
+.branding_banner > h1::before {
+  content: "";
+  width: 100%;
+  height: 4px;
+  background: white;
+  position: absolute;
+  top: 103%;
+  animation: show-up 0.5s linear;
+}
+@keyframes show-up {
+  0% {
+    opacity: 0;
+    width: 0;
+  }
+
+  100% {
+    opacity: 1;
+    width: 100%;
+  }
+}
+.branding_feature {
+  width: 80%;
+  margin: auto;
+  padding: 10rem 0;
+  height: 120vh;
+}
+.branding_feature_title {
+  text-align: center;
+  position: relative;
+  opacity: 1;
+}
+
+.branding_feature_title_container > h1 {
+  font-family: "S-CoreDream-6Bold";
+  /* position: absolute;
+  top: 25%;
+  left: 12%; */
+  padding: 3rem;
+}
+.branding_feature_title_container {
+  width: 100%;
+  max-width: 750px;
+  margin: auto;
+  position: relative;
+}
+.branding_feature_title_container > svg {
+  position: absolute;
+  top: -4%;
+  left: 0;
+}
+.branding_svg_title {
+  animation: dash 0.7s linear;
+}
+.branding_svg_content1 {
+  animation: dash1 2s linear;
+}
+.branding_svg_content2 {
+  animation: dash2 2s linear;
+}
+.branding_feature_svg {
+  fill: none;
+  stroke: #181863;
+  stroke-width: 10;
+  stroke-miterlimit: 10;
+  animation: dash 3s linear 0s;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+}
+
+.branding_svg {
+  fill: none;
+  stroke: #181863;
+  stroke-miterlimit: 10;
+  stroke-width: 10px;
+
+  stroke-dasharray: 0;
+  stroke-dashoffset: 0;
+}
+.branding_feature_contents_container {
+  position: relative;
+  max-height: 500px;
+  height: 500px;
+  width: 100%;
+}
+.branding_feature_contents_position > svg {
+  top: 1% !important;
+  left: 33% !important;
+}
+.branding_feature_contents_container > svg {
+  max-height: 500px;
+  height: 100%;
+  width: 100%;
+  user-select: auto;
+  position: absolute;
+  top: 2%;
+  left: 4%;
+  animation: dash1 3s linear 3s;
+  stroke-dasharray: 0;
+  stroke-dashoffset: 0;
+}
+.branding_feature_contents_texts1 {
+  position: absolute;
+  top: 36%;
+  left: 42%;
+  animation: slidein_left 1s linear;
+}
+.branding_feature_contents_texts1 > h1 {
+  font-family: "S-CoreDream-6Bold";
+  margin-bottom: 2rem;
+  color: #181863;
+}
+.branding_feature_contents_texts1 > p {
+  padding-left: 2rem;
+}
+.dis_none {
+  opacity: 0;
+  display: none;
+}
+.branding_feature_contents_texts2 {
+  position: absolute;
+  top: 25%;
+  left: 29%;
+  text-align: right;
+  animation: slidein_right 1s linear;
+}
+.branding_feature_contents_texts2 > h1 {
+  font-family: "S-CoreDream-6Bold";
+  margin-bottom: 2rem;
+  color: #181863;
+}
+.branding_feature_contents_texts2 > p {
+  padding-right: 2rem;
+}
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 1000;
+
+    stroke-dasharray: 1500;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+
+    stroke-dasharray: 2000;
+  }
+}
+@keyframes dash1 {
+  0% {
+    stroke-dashoffset: 1000;
+    stroke-dasharray: 1000;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+
+    stroke-dasharray: 1000;
+  }
+}
+
+@keyframes dash2 {
+  0% {
+    opacity: 0;
+    stroke-dashoffset: 1500;
+    stroke-dasharray: 1500;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 1000;
+    opacity: 1;
+  }
+}
+@keyframes slidein_left {
+  from {
+    transform: translateX(2000px);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes slidein_right {
+  from {
+    transform: translateX(-2000px);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+.branding_font {
+  height: 70vh;
+  background: rgb(210, 209, 255);
+  padding: 10rem 0;
+}
+.branding_font_texts {
+  text-align: center;
+}
+.branding_font_texts > h1 {
+  font-family: "S-CoreDream-6Bold";
+  margin-bottom: 2rem;
+  color: #181863;
+}
+.branding_price {
+  padding: 10rem 0;
+}
+.branding_price_compare {
+  width: 70%;
+  margin: auto;
+}
+.branding_price_compare > h1,
+.branding_price_texts > h1 {
+  font-family: "S-CoreDream-6Bold";
+  margin-bottom: 3rem;
+  color: #181863;
+  text-align: center;
+}
+.branding_price_compare > img {
+  width: 100%;
+  margin: auto;
+}
+.branding_price_texts {
+  text-align: center;
+  margin-top: 10rem;
+}
+.branding_price_texts > p {
+  line-height: 2rem;
+}
+.branding_link > h1 {
+  font-family: "S-CoreDream-6Bold";
+  margin: 10rem 0;
+  color: #181863;
+  text-align: center;
+}
+.branding_link_to {
+  display: flex;
+  justify-content: space-around;
+}
+.branding_link_to > a {
+  text-decoration: none;
+  color: #181863;
+  font-size: 2rem;
+  font-family: "S-CoreDream-6Bold";
+  border: #181863 3px solid;
+  padding: 0.5rem;
+  transition: all 0.5s linear;
+}
+.branding_link_to > a:hover {
+  color: white;
+  background: #181863;
+}

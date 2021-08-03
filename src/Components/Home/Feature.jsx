@@ -7,7 +7,7 @@ function Feature(props) {
       <div className="feature_main">
         <img src="feature.gif" alt="" srcset="" />
         <div className="feature_main_text">
-          <h2>제작효율을 극대화한 폰트 제작 서비스</h2>
+          <h3>제작효율을 극대화한 폰트 제작 서비스</h3>
           <p>
             얼리폰트는 '기획조합방식'이라는 혁신적이고 독자적인 폰트제작기술을
             완성하였습니다.{" "}

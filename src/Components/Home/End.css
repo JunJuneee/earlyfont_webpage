@@ -1,0 +1,22 @@
+.end {
+  padding-top: 20vh;
+}
+.end > h1 {
+  color: #1b1b63;
+  text-align: center;
+  font-family: "S-CoreDream-6Bold";
+  margin-bottom: 10rem;
+}
+.end_pic_container {
+  display: flex;
+}
+.end_pic_container > img {
+  width: 150px;
+  margin-left: 43%;
+}
+
+@media screen and (max-width: 960px) {
+  .end_pic_container > img {
+    margin-left: 16%;
+  }
+}

@@ -1,6 +1,7 @@
-.header:not(.home) {
+.header {
   height: 60px;
   position: sticky;
+  position: -webkit-sticky;
   top: 0px;
   width: 100%;
   background: transparent;
@@ -9,7 +10,13 @@
   align-items: center;
   font-size: 1.2rem;
   z-index: 999;
-  overflow: hidden;
+  background: transparent;
+}
+
+.header_bg_white {
+  background: white;
+}
+.header_bg_trans {
   background: transparent;
 }
 
@@ -26,7 +33,6 @@
   justify-content: flex-end;
 }
 .nav_items > .bars {
-  /* color: #cc3333; */
   font-size: 40px;
   line-height: 80px;
   position: relative;
@@ -44,30 +50,101 @@
   opacity: 1;
   transition: all 0.5s ease;
 }
-
-.nav_menu .active {
-  color: black;
+.nav-menu .active {
+  background: #242222;
+  left: 0;
+  opacity: 1;
+  transition: all 0.5s ease;
+  z-index: 5;
+}
+.nav_menu a {
+  position: relative;
+}
+.nav_menu a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: rgb(116, 116, 161);
+  transition: all 0.5s ease-out;
+}
+.nav_menu a:hover::after {
+  width: 100%;
+}
+.nav_menu .selected {
+  position: relative;
+}
+.nav_menu .selected::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 2px;
+  background: #181863;
+  transition: all 0.5s ease-out;
 }
 .nav_item {
   list-style: none;
   margin-left: 1rem;
-  line-height: 60px;
   text-decoration: none;
-  color: rgb(024, 024, 99);
   font-family: "S-CoreDream-6Bold";
+}
+.nav_item_blue {
+  color: rgb(024, 024, 99);
+}
+.nana {
+  display: none;
+}
+.nav_item_white {
+  color: white;
 }
 .nav_item > a {
   text-decoration: none;
   color: inherit;
 }
 @media screen and (max-width: 960px) {
+  .header_container {
+    justify-content: space-between;
+  }
+  .nav_menu {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 93vh;
+    position: absolute;
+    top: 60px;
+    left: -100%;
+    opacity: 1;
+    transition: all 0.5s ease;
+    justify-content: flex-start;
+  }
+  .nav_menu.active {
+    background: #242222;
+    left: 0;
+    opacity: 1;
+    transition: all 0.5s ease;
+    z-index: 1;
+    align-items: flex-end;
+  }
   .nav_icon {
     display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    transform: translate(-100%, 60%);
-    font-size: 1.8rem;
+    font-size: unset;
     cursor: pointer;
+  }
+  .nav_icon > .bars,
+  .nav_icon > .times {
+    font-size: 2.5rem;
+    color: #181863;
+  }
+  .nav_item_blue {
+    color: white;
+  }
+  .nav_item {
+    margin: 1rem 1rem 0;
   }
 }
