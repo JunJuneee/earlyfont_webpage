@@ -11,18 +11,17 @@ function Content({ starEndHeight }) {
 
   const handleScroll = () => {
     const currentScrollY = window.scrollY;
-    const fullHeight = document.documentElement.clientWidth;
-    scrollY = currentScrollY - boxScroll.current.clientHeight;
+    scrollY = currentScrollY - boxScroll.current?.clientHeight;
     let adjustTop =
-      window.innerWidth <= 960 ? -fullHeight * 0.35 : fullHeight * 0.17;
+      window.innerWidth <= 960 ? 0 : starEndHeight.current?.offsetTop * 0.065;
 
-    if (currentScrollY >= starEndHeight.current.offsetTop - adjustTop) {
+    if (currentScrollY >= starEndHeight.current?.offsetTop - adjustTop) {
       setStyles({
         top: `${star.current.offsetTop}px`,
       });
-    } else if (boxScroll.current.clientHeight < currentScrollY + 150) {
+    } else if (boxScroll.current?.clientHeight < currentScrollY + 150) {
       setStyles({
-        top: `${scrollY + 100}px`,
+        top: `${scrollY + 200}px`,
       });
     } else {
       setStyles({

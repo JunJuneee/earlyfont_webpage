@@ -10,19 +10,9 @@ function Header(props) {
   const [click, setClick] = useState(false);
 
   const handleNav = () => {
-    let currentScrollY = window.scrollY;
-
-    if (
-      currentScrollY < 60 &&
-      (window.location.pathname === "/" ||
-        window.location.pathname === "/branding")
-    ) {
-      setHeaderColorFlip(true);
-    } else {
-      setHeaderColorFlip(false);
-    }
-
     if (window.innerWidth <= 960) {
+      setHeaderColorFlip(false);
+    } else {
       setHeaderColorFlip(false);
     }
   };
@@ -35,11 +25,6 @@ function Header(props) {
     }
     if (window.innerWidth <= 960) {
       setHeaderColorFlip(false);
-    }
-    // 사진 프리로드
-    for (let i = 1; i < 11; i++) {
-      const img = new Image();
-      img.src = `/Images/adv_fast_${i}.png`;
     }
   }, []);
 

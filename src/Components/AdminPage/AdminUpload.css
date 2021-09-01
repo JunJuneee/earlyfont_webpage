@@ -1,0 +1,31 @@
+.adminPage {
+  width: 40%;
+  margin: auto;
+  height: 70vh;
+  display: flex;
+}
+.adminPage_form {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  margin: auto;
+}
+.adminPage_form > .MuiFormControl-root {
+  width: 100%;
+}
+.form_label {
+  margin: 1rem 0;
+  display: flex;
+  cursor: pointer;
+}
+.form_label > input {
+  display: none;
+}
+.form_label > p {
+  display: inline-block;
+  color: #1b1b63;
+  margin-left: 1.5rem;
+}
+form > .MuiButtonBase-root {
+  margin-top: 1.5rem;
+}

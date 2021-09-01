@@ -36,6 +36,10 @@ function Banner(props) {
             .start();
         }}
       />
+      <ul className="banner_words_explain">
+        <li>EARLY : 여느때보다 일찍</li>
+        <li>FONT : 글꼴이 동일한 활자의 한벌</li>
+      </ul>
       <div className="banner_stars glow"></div>
       <div class="twinkling"></div>
       <img className="banner_bg" src="Images/banner_bg.png" alt="" />

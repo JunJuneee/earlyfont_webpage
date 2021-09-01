@@ -41,7 +41,7 @@
   content: "";
   background-image: url("./Images/bubble.png");
   background-size: 100% 100%;
-  left: 122%;
+  left: 102%;
   position: absolute;
   top: 40%;
   opacity: 0.5;
@@ -71,9 +71,9 @@
 }
 .advantage_texts::before {
   content: "";
-  width: 70%;
+  width: 65%;
   height: 4px;
-  left: 11%;
+  left: 18%;
   background-color: rgb(210, 210, 222);
   position: absolute;
 }
@@ -99,7 +99,7 @@
 .advantage_container_pretty {
   margin-top: 10rem;
   background: rgb(237, 238, 234);
-  padding: 7rem 0;
+  padding: 10rem 0;
   overflow: hidden;
 }
 /* .advantage_container_pretty > .advantage_container_texts,
@@ -363,7 +363,7 @@
     content: "";
     width: 78%;
     height: 4px;
-    left: 10%;
+    left: 11%;
     background-color: rgb(210, 210, 222);
     position: absolute;
   }

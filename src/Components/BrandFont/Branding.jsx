@@ -3,26 +3,16 @@ import { Link } from "react-router-dom";
 import "./Branding.css";
 
 function Branding(props) {
-  const first_show = useRef();
   const title_ref = useRef();
   const content1 = useRef();
-  const content2 = useRef();
+
   const handleScroll = () => {
     const currentScrollY = window.scrollY;
-    if (currentScrollY > first_show.current?.offsetTop) {
-      title_ref.current.className = "branding_feature_title";
-    }
     if (
       title_ref.current?.offsetTop !== 0 &&
-      currentScrollY > title_ref.current?.offsetTop
+      currentScrollY + 200 > title_ref.current?.offsetTop
     ) {
       content1.current.className = "branding_feature_contents";
-    }
-    if (
-      content1.current?.offsetTop !== 0 &&
-      currentScrollY > content1.current?.offsetTop
-    ) {
-      content2.current.className = "branding_feature_contents";
     }
   };
   useEffect(() => {
@@ -35,27 +25,19 @@ function Branding(props) {
     <div className="branding">
       <div className="branding_banner">
         <h1>브랜드 개발사가 만드는 폰트</h1>
-        <p ref={first_show}>
-          브랜드개발사에서 만드는 폰트는 다릅니다. <br /> 우리는 당신의 브랜드가
-          가장 멋있게 빛나는 모습을 아는 사람들입니다.
+        <p>
+          타이포브랜딩(Typography Branding)은
+          <br /> 브랜드의 고유한 폰트인 ‘전용서체’를 개발하는 과정입니다.
+          <br />
+          그리고 우리는 당신의 브랜드가 가장 멋있게 빛나는 모습을 아는
+          사람들입니다.
+          <br />
+          브랜드개발사에서 만드는 폰트는 다릅니다.
         </p>
       </div>
       <div className="branding_feature">
-        <div className="dis_none" ref={title_ref}>
+        <div className="branding_feature_title" ref={title_ref}>
           <div className="branding_feature_title_container">
-            <svg
-              version="1.1"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 761.9 205.7"
-            >
-              <rect
-                className="branding_svg branding_svg_title"
-                x="8.05"
-                y="5.01"
-                width="745.84"
-                height="195.35"
-              />
-            </svg>
             <h1>
               타이포브랜딩(Typography Branding)은
               <br />
@@ -67,23 +49,51 @@ function Branding(props) {
           <div className="branding_feature_contents_container">
             <svg
               version="1.1"
+              id="레이어_1"
               xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 761.9 600"
+              x="0px"
+              y="0px"
+              width="512.467px"
+              height="875.073px"
+              viewBox="243.767 126.481 512.467 875.073"
+              enable-background="new 243.767 126.481 512.467 875.073"
             >
               <line
                 className="branding_svg branding_svg_content1"
-                x1="0"
-                y1="0"
-                x2="241.14"
-                y2="595.24"
+                fill="none"
+                stroke="#1b1b63"
+                stroke-width="8"
+                stroke-miterlimit="10"
+                x1="302.471"
+                y1="128.034"
+                x2="464.659"
+                y2="512.917"
               />
+
               <line
                 className="branding_svg branding_svg_content2"
-                y1="595"
-                x2="761.93"
-                y2="595"
+                fill="none"
+                stroke="#1b1b63"
+                stroke-width="8"
+                stroke-miterlimit="10"
+                x1="243.767"
+                y1="512.917"
+                x2="756.233"
+                y2="512.917"
+              />
+              <line
+                className="branding_svg branding_svg_content1"
+                fill="none"
+                stroke="#1b1b63"
+                stroke-width="8"
+                stroke-miterlimit="10"
+                x1="716.281"
+                y1="512.917"
+                x2="511.027"
+                y2="1000"
               />
             </svg>
+
             <div className="branding_feature_contents_texts1">
               <h1>구별짓다</h1>
               <p>고유한 이름을 가짐으로써 타인과 구별짓듯이, </p>
@@ -91,21 +101,6 @@ function Branding(props) {
               <p>녹여내어 경쟁사와 차별화할 수 있습니다. </p>
               <p>다양한 매체에서 일관된 브랜드커뮤니케이션을 달성합니다.</p>
             </div>
-          </div>
-        </div>
-        <div className="dis_none " ref={content2}>
-          <div className="branding_feature_contents_container branding_feature_contents_position">
-            <svg
-              version="1.1"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 761.9 600"
-            >
-              <line
-                class="branding_svg branding_svg_content1"
-                x1="305.17"
-                y2="720.19"
-              />
-            </svg>
             <div className="branding_feature_contents_texts2">
               <h1>기억시키다</h1>
               <p>마케팅 차원의 폰트 활용/배포는 </p>
@@ -143,7 +138,7 @@ function Branding(props) {
           </h1>
           <div className="branding_link_to">
             <Link to="/portfolio">포트폴리오 보기</Link>
-            <Link to="/estimate">견적 다운로드</Link>
+            <Link to="/estimate">견적 문의</Link>
           </div>
         </div>
       </div>

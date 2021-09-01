@@ -4,7 +4,6 @@
   width: 100%;
   position: relative;
   margin-top: -80px;
-  overflow: hidden;
   z-index: 1;
   overflow-x: clip;
 }
@@ -29,6 +28,15 @@
 }
 .Typewriter__wrapper {
   font-family: "S-CoreDream-6Bold";
+}
+.banner_words_explain {
+  position: absolute;
+  z-index: 100;
+  top: 57%;
+  left: 23.5%;
+  font-size: 1.2rem;
+  color: white;
+  list-style: none;
 }
 .banner_starBg {
   background: black
@@ -159,11 +167,19 @@
   }
 }
 @media screen and (max-width: 960px) {
+  .banner {
+    overflow: hidden;
+  }
   .Typewriter {
     font-size: 2rem;
     left: 11%;
   }
   .banner > .banner_bg {
     width: unset;
+    /* overflow: hidden; */
+  }
+  .banner_words_explain {
+    top: 49%;
+    left: 11.5%;
   }
 }

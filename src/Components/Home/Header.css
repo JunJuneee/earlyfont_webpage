@@ -76,6 +76,7 @@
 }
 .nav_menu .selected {
   position: relative;
+  color: #181863;
 }
 .nav_menu .selected::after {
   content: "";
@@ -95,17 +96,21 @@
   font-family: "S-CoreDream-6Bold";
 }
 .nav_item_blue {
-  color: rgb(024, 024, 99);
+  color: rgb(131, 131, 131);
 }
-.nana {
-  display: none;
-}
+
 .nav_item_white {
   color: white;
 }
 .nav_item > a {
   text-decoration: none;
   color: inherit;
+}
+
+.header_topArrow > .MuiSvgIcon-root {
+  width: 2rem !important;
+  height: 2rem !important;
+  color: #423f3e;
 }
 @media screen and (max-width: 960px) {
   .header_container {
@@ -124,7 +129,7 @@
     justify-content: flex-start;
   }
   .nav_menu.active {
-    background: #242222;
+    background: #181863;
     left: 0;
     opacity: 1;
     transition: all 0.5s ease;
@@ -146,5 +151,20 @@
   }
   .nav_item {
     margin: 1rem 1rem 0;
+    color: rgb(210, 210, 222);
+  }
+  .nav_menu .selected {
+    color: white;
+  }
+  .nav_menu .selected::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 2px;
+    background: white;
+    transition: all 0.5s ease-out;
   }
 }

@@ -1,0 +1,48 @@
+.adminpage {
+  width: 60%;
+  margin: auto;
+  padding: 4rem;
+}
+.adminSingleList {
+  width: 100%;
+}
+.adminpage_table {
+  display: flex;
+  list-style: none;
+  text-align: center;
+  padding: 0.5rem 0;
+  align-items: center;
+}
+.adminpage_listTitle:first-child > .adminpage_table {
+  border-bottom: 2px solid #1b1b63;
+  border-top: 2px solid #1b1b63;
+}
+.adminSingleList > .adminpage_table {
+  border-bottom: 1px solid grey;
+}
+.adminpage_table_no,
+.adminpage_table_date,
+.adminpage_table_editing,
+.adminpage_table_delete {
+  flex: 0.3;
+}
+.adminpage_table_editing,
+.adminpage_table_delete {
+  cursor: pointer;
+}
+.adminpage_table_title {
+  flex: 1;
+}
+.adminpage_table_edit {
+  flex: 0.6;
+}
+.MuiPagination-ul {
+  justify-content: center;
+}
+.adminpage_bottom {
+  margin-top: 2rem;
+  display: flex;
+}
+.adminpage_pagination {
+  flex: 1;
+}

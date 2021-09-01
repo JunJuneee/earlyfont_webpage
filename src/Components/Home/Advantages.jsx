@@ -7,7 +7,7 @@ function Advantages(props) {
   const fast_div = useRef();
   const pretty_div = useRef();
   const scrollHeight = window.outerHeight * 2.2;
-  const [left, setLeft] = useState(0);
+  const [left, setLeft] = useState(7);
   const [picNum, setPicNum] = useState(1);
   const [day, setDay] = useState(1);
   const [mobile, setMobile] = useState(false);
@@ -23,7 +23,7 @@ function Advantages(props) {
     `폰트 기획 조합 디벨롭`,
     "폰트납품",
   ];
-  AOS.init();
+  AOS.init({ offset: 100, delay: 0, duration: 500 });
   const handleScroll = () => {
     let num = parseInt(
       (fast_div.current?.offsetTop /
@@ -37,7 +37,7 @@ function Advantages(props) {
     if (num > 0 && num < 100) {
       setDay(parseInt(num / 10) + 1);
       setPicNum(parseInt(num / 10) + 1);
-      setLeft(num * 0.8);
+      setLeft(num * 0.8 + 7);
     }
   };
 
@@ -182,15 +182,11 @@ function Advantages(props) {
         <div className="advantege_cheap_img">
           <img
             data-aos="fade-right"
-            data-aos-offset="500"
-            data-aos-duration="700"
             src={`/Images/${mobile ? "adv_cheap_m_1.png" : "adv_cheap_1.png"}`}
             alt=""
           />
           <img
             data-aos="fade-left"
-            data-aos-offset="500"
-            data-aos-duration="700"
             src={`/Images/${mobile ? "adv_cheap_m_2.png" : "adv_cheap_2.png"}`}
             alt=""
           />

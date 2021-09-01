@@ -42,7 +42,7 @@
   content: "";
   background-image: url("./Images/bubble.png");
   background-size: 100% 100%;
-  left: 122%;
+  left: 102%;
   position: absolute;
   top: -130%;
   opacity: 0.5;
@@ -167,7 +167,7 @@
     background-size: inherit;
   }
   .content_star {
-    left: 30%;
+    left: 31%;
   }
   .content_title {
     width: unset;
@@ -183,6 +183,7 @@
   .content_title > p {
     font-size: 1.5rem;
     width: 150px;
+    height: 115px;
     padding: 1rem 0;
   }
   .content_text {
@@ -194,6 +195,7 @@
   .content_text > p {
     margin: 1rem 0;
   }
+
   .feature_main {
     padding: 3rem 0;
   }

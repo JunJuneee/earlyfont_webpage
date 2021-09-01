@@ -13,7 +13,7 @@
   font-family: "S-CoreDream-6Bold";
   position: relative;
   width: fit-content;
-  margin: 0 auto 2rem;
+  margin: 2rem auto 4rem;
 }
 .branding_banner > h1::before {
   content: "";
@@ -38,8 +38,8 @@
 .branding_feature {
   width: 80%;
   margin: auto;
-  padding: 10rem 0;
-  height: 120vh;
+  padding: 10rem 0 0;
+  height: 105vh;
 }
 .branding_feature_title {
   text-align: center;
@@ -49,20 +49,19 @@
 
 .branding_feature_title_container > h1 {
   font-family: "S-CoreDream-6Bold";
-  /* position: absolute;
-  top: 25%;
-  left: 12%; */
-  padding: 3rem;
+  padding: 1rem;
+  border: #1b1b63 7px solid;
+  font-size: 1.17rem;
 }
 .branding_feature_title_container {
   width: 100%;
-  max-width: 750px;
+  max-width: 550px;
   margin: auto;
   position: relative;
 }
 .branding_feature_title_container > svg {
   position: absolute;
-  top: -4%;
+  top: -8%;
   left: 0;
 }
 .branding_svg_title {
@@ -88,27 +87,33 @@
   fill: none;
   stroke: #181863;
   stroke-miterlimit: 10;
-  stroke-width: 10px;
+  stroke-width: 6px;
 
   stroke-dasharray: 0;
   stroke-dashoffset: 0;
 }
+/* .branding_feature_contents {
+  height: 600px;
+
+  margin-top: -5%;
+} */
 .branding_feature_contents_container {
-  position: relative;
+  /* position: relative;
   max-height: 500px;
   height: 500px;
-  width: 100%;
+  width: 100%; */
+  margin-top: -2px;
+  text-align: center;
+  position: relative;
 }
 .branding_feature_contents_position > svg {
   top: 1% !important;
-  left: 33% !important;
 }
 .branding_feature_contents_container > svg {
-  max-height: 500px;
+  /* max-height: 500px;
   height: 100%;
-  width: 100%;
-  user-select: auto;
-  position: absolute;
+  width: 100%; */
+  /* position: absolute; */
   top: 2%;
   left: 4%;
   animation: dash1 3s linear 3s;
@@ -117,14 +122,17 @@
 }
 .branding_feature_contents_texts1 {
   position: absolute;
-  top: 36%;
-  left: 42%;
+  top: 8%;
+  left: 52%;
   animation: slidein_left 1s linear;
+  text-align: left;
 }
-.branding_feature_contents_texts1 > h1 {
+.branding_feature_contents_texts1 > h1,
+.branding_feature_contents_texts2 > h1 {
   font-family: "S-CoreDream-6Bold";
   margin-bottom: 2rem;
   color: #181863;
+  font-size: 1.4rem;
 }
 .branding_feature_contents_texts1 > p {
   padding-left: 2rem;
@@ -135,16 +143,12 @@
 }
 .branding_feature_contents_texts2 {
   position: absolute;
-  top: 25%;
-  left: 29%;
+  top: 57%;
+  left: 21%;
   text-align: right;
   animation: slidein_right 1s linear;
 }
-.branding_feature_contents_texts2 > h1 {
-  font-family: "S-CoreDream-6Bold";
-  margin-bottom: 2rem;
-  color: #181863;
-}
+
 .branding_feature_contents_texts2 > p {
   padding-right: 2rem;
 }
@@ -210,6 +214,8 @@
   height: 70vh;
   background: rgb(210, 209, 255);
   padding: 10rem 0;
+  z-index: 10;
+  position: relative;
 }
 .branding_font_texts {
   text-align: center;
@@ -218,6 +224,7 @@
   font-family: "S-CoreDream-6Bold";
   margin-bottom: 2rem;
   color: #181863;
+  font-size: 1.4rem;
 }
 .branding_price {
   padding: 10rem 0;
@@ -225,6 +232,8 @@
 .branding_price_compare {
   width: 70%;
   margin: auto;
+  display: flex;
+  flex-direction: column;
 }
 .branding_price_compare > h1,
 .branding_price_texts > h1 {
@@ -234,7 +243,7 @@
   text-align: center;
 }
 .branding_price_compare > img {
-  width: 100%;
+  width: 70%;
   margin: auto;
 }
 .branding_price_texts {
@@ -252,18 +261,105 @@
 }
 .branding_link_to {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
 }
 .branding_link_to > a {
   text-decoration: none;
   color: #181863;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-family: "S-CoreDream-6Bold";
   border: #181863 3px solid;
   padding: 0.5rem;
   transition: all 0.5s linear;
+  width: 100%;
+  max-width: 170px;
+  text-align: center;
+  margin: 0 4rem;
 }
 .branding_link_to > a:hover {
   color: white;
   background: #181863;
+}
+@media screen and (max-width: 960px) {
+  .branding_banner {
+    padding: 9rem 1rem 7rem;
+  }
+  .branding_banner > h1 {
+    font-size: 1.5rem;
+  }
+  .branding_feature {
+    width: 90%;
+  }
+  .branding_feature_title_container > h1 {
+    font-size: 1rem;
+    padding: 1rem 0;
+  }
+  .branding_feature {
+    padding: 7rem 0 4rem;
+    height: 85vh;
+  }
+  .branding_feature_contents_container {
+    height: 100%;
+  }
+  .branding_feature_contents_container > svg {
+    width: 100%;
+    height: 100%;
+  }
+  .branding_feature_contents_texts1 {
+    top: 4%;
+  }
+  .branding_feature_contents_texts1 > h1,
+  .branding_feature_contents_texts2 > h1 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+  }
+  .branding_feature_contents_texts1 > p,
+  .branding_feature_contents_texts2 > p {
+    padding: 0;
+    font-size: 0.9rem;
+  }
+  .branding_feature_contents_position > svg {
+    top: -36% !important;
+    left: 0 !important;
+  }
+  .branding_feature_contents_texts2 {
+    top: 50%;
+    left: 0;
+    text-align: left;
+    width: 200px;
+  }
+  .branding_price {
+    padding: 7rem 0;
+  }
+  .branding_price_compare {
+    width: 100%;
+  }
+  .branding_price_compare > img {
+    width: 90%;
+  }
+  .branding_price_texts {
+    width: 80%;
+    margin: 7rem auto;
+  }
+  .branding_link {
+    width: 85%;
+    margin: auto;
+  }
+
+  .branding_price_compare > h1,
+  .branding_price_texts > h1 {
+    font-size: 1.4rem;
+  }
+  .branding_link > h1 {
+    font-size: 1.3rem;
+    margin: 6rem 0;
+  }
+  .branding_link_to > a {
+    font-size: 1rem;
+  }
+  .branding_link_to {
+    justify-content: space-around;
+    flex-direction: column;
+    height: 10rem;
+  }
 }

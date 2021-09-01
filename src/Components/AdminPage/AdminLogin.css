@@ -1,0 +1,17 @@
+.admin {
+  height: 80vh;
+  display: flex;
+}
+.admin > form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+}
+
+.MuiButton-label > a {
+  text-decoration: none;
+  color: #3f51b5;
+  font-family: "S-CoreDream-6Bold";
+}
