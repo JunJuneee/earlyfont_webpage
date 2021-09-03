@@ -37,16 +37,18 @@
 }
 @media screen and (max-width: 960px) {
   .feature {
-    padding: 2rem 0;
+    padding: 3rem 0;
   }
   .feature_main_text > h3 {
     margin: 4rem 0;
+    font-size: 1.3rem;
   }
   .feature_main_text > p {
     margin: 1rem 0;
+    font-size: 1rem;
   }
   .feature_main > img {
-    width: 120%;
+    width: 100%;
     margin: 0;
   }
 

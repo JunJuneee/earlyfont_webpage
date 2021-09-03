@@ -161,7 +161,7 @@
 }
 @media screen and (max-width: 960px) {
   .content {
-    padding: 15rem 0;
+    padding: 15rem 0 12rem;
   }
   .content::before {
     background-size: inherit;
@@ -181,7 +181,7 @@
     display: none;
   }
   .content_title > p {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     width: 150px;
     height: 115px;
     padding: 1rem 0;

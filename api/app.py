@@ -1,15 +1,25 @@
+import shutil
+import os
+from docx import Document
+from docx2pdf import convert
+from docx.enum.text import WD_ALIGN_PARAGRAPH
+from docx.enum.style import WD_STYLE_TYPE
+from docx.oxml.ns import qn,nsdecls
 from flask import Flask , request,jsonify, json,current_app
 from datetime import datetime
 from flask_sqlalchemy import SQLAlchemy
-import os
+import schedule
+
+
 
 app = Flask(__name__)
-
+app.app_context()
 
 app.config['SQLALCHEMY_DATABASE_URI']="mysql://earlyfont:earlyfont@localhost:3306/earlyfont"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] =False
 
 db=SQLAlchemy(app)
+
 
 class Uploads(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -33,11 +43,7 @@ class Uploads(db.Model):
     def __repr__(self):
         return f"Uploads(title : {self.title},date : {self.date}, description: {self.description})"
 
-    
-@app.route('/estimate',methods=['GET'])
-def estimate():
-     file_name = '{}.docx'.format()
-     
+
 def save_file(file,file_name):
     path = os.path.join(
         current_app.root_path,'../build/FontImages',file_name)
@@ -45,6 +51,8 @@ def save_file(file,file_name):
         current_app.root_path,'../public/FontImages',file_name)
     file.save(path)
     file.save(path2)
+    
+    
 @app.route('/upload',methods=['GET','POST'])
 def upload():
     
@@ -81,8 +89,35 @@ def loadFontData():
     request_data = json.loads(request.data)
     font = Uploads.query.filter_by(id=int(request_data['id'])).first()
     return jsonify({'font': Uploads.serializer(font)})
+
+
+def refresh_estimate():
+    file_names = ['estimate_basic.docx','estimate_basicPlus.docx','estimate_premium.docx','estimate_premiumPlus.docx']
+    for idx,name in enumerate(file_names):
+        path = os.path.join(current_app.root_path,'../public/Estimates')
+        shutil.copy(
+        name,  os.path.join(path, name))
+        document = Document("{}/{}".format(path, name))
+        paragraph = document.add_paragraph()
+        run = paragraph.add_run(f"견적일 {datetime.today().strftime('%Y.%m.%d')} / 견적일로부터 15일간 유효합니다.")
+        run.font.name = "에스코어 드림 5 Medium"
+        r = run._element
+        r.rPr.rFonts.set(qn('w:eastAsia'), '에스코어 드림 5 Medium')
+        paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        document.save(os.path.join(path,name))
+        convert(os.path.join(path,name))
+
+def daily_refresh():
+    with app.app_context():
+        refresh_estimate()
+schedule.every().day.at("17:47").do(daily_refresh)
+
+
     
-
-
 if __name__ =='__main__':
     app.run(debug=True,port=8080)
+    while True:
+        schedule.run_pending()
+    
+
+    

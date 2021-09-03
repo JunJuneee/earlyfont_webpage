@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import Typewriter from "typewriter-effect";
-
+import axios from "axios";
 import "./Banner.css";
 
 function Banner(props) {

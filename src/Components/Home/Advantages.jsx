@@ -37,7 +37,7 @@ function Advantages(props) {
     if (num > 0 && num < 100) {
       setDay(parseInt(num / 10) + 1);
       setPicNum(parseInt(num / 10) + 1);
-      setLeft(num * 0.8 + 7);
+      setLeft(num * 0.8 + 4);
     }
   };
 

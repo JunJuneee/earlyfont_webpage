@@ -50,7 +50,7 @@
 .branding_feature_title_container > h1 {
   font-family: "S-CoreDream-6Bold";
   padding: 1rem;
-  border: #1b1b63 7px solid;
+  border: #1b1b63 6px solid;
   font-size: 1.17rem;
 }
 .branding_feature_title_container {
@@ -219,12 +219,18 @@
 }
 .branding_font_texts {
   text-align: center;
+  width: 80%;
+  margin: auto;
 }
 .branding_font_texts > h1 {
   font-family: "S-CoreDream-6Bold";
-  margin-bottom: 2rem;
+
   color: #181863;
-  font-size: 1.4rem;
+  font-size: 1.7rem;
+}
+.branding_font_texts > img {
+  width: 60%;
+  margin: 6rem 0;
 }
 .branding_price {
   padding: 10rem 0;
@@ -241,6 +247,7 @@
   margin-bottom: 3rem;
   color: #181863;
   text-align: center;
+  font-size: 1.7rem;
 }
 .branding_price_compare > img {
   width: 70%;
@@ -258,6 +265,7 @@
   margin: 10rem 0;
   color: #181863;
   text-align: center;
+  font-size: 1.7rem;
 }
 .branding_link_to {
   display: flex;
@@ -271,10 +279,9 @@
   border: #181863 3px solid;
   padding: 0.5rem;
   transition: all 0.5s linear;
-  width: 100%;
-  max-width: 170px;
+  width: fit-content;
   text-align: center;
-  margin: 0 4rem;
+  margin-right: 5rem;
 }
 .branding_link_to > a:hover {
   color: white;
@@ -361,5 +368,8 @@
     justify-content: space-around;
     flex-direction: column;
     height: 10rem;
+  }
+  .branding_font_texts > img {
+    width: 100%;
   }
 }

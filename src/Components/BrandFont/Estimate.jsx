@@ -1,6 +1,5 @@
 import React from "react";
 import "./Estimate.css";
-import { Link } from "react-router-dom";
 
 function Estimate(props) {
   return (
@@ -94,14 +93,14 @@ function Estimate(props) {
       </div>
       <div className="estimate_services">
         <h2>EUX BRANDING SERVICES</h2>
-      </div>
-      <div className="introFont_moveLink">
-        <a target="_blank" href="http://www.d-plant.com/">
-          <img src="/Images/designplant_logo.png" alt="" />
-        </a>
-        <a target="_blank" href="https://www.calliplant.com/">
-          <img src="/Images/calliplant_logo.png" alt="" />
-        </a>
+        <div className="introFont_moveLink">
+          <a target="_blank" href="http://www.d-plant.com/">
+            <img src="/Images/designplant_logo.png" alt="" />
+          </a>
+          <a target="_blank" href="https://www.calliplant.com/">
+            <img src="/Images/calliplant_logo.png" alt="" />
+          </a>
+        </div>
       </div>
     </div>
   );

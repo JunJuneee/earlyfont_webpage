@@ -16,7 +16,7 @@ function AdminLogin() {
     e.preventDefault();
     if (id === "admin" && password === "euxeux88") {
       dispatch(login({ user: "eux" }));
-      history.push("/adminpage");
+      history.push("/admin");
     } else {
       setid("");
       setPassword("");

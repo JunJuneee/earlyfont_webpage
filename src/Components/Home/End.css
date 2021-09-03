@@ -19,4 +19,7 @@
   .end_pic_container > img {
     margin-left: 16%;
   }
+  .end > h1 {
+    font-size: 1.5rem;
+  }
 }

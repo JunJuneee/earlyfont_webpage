@@ -113,8 +113,19 @@ function Branding(props) {
       </div>
       <div className="branding_font">
         <div className="branding_font_texts">
-          <h1>과학적인 글자</h1>
-          <p>완성도 높은 폰트를 만들어서 과학적이다라는 설명!</p>
+          <h1>용도에 따라 설계제작된 폰트</h1>
+          <img src="/Images/branding.png" alt="" />
+          <p>
+            일상에서 사용될 얼리명조체는 굵은 세로획과 그에 반해 얇은 가로획
+          </p>
+          <p>
+            붓으로 쓴 듯한 느낌을 주기위하여 획 끝의 삐침은 유지된 명조체의
+            기본성을 지키는 서체이다.
+          </p>
+          <p>
+            높은 실용성을 위해 획들은 변화없이 일자로 이루어지며 각 형마다
+            균형감이 있게 설계되었다.
+          </p>
         </div>
       </div>
       <div className="branding_price">

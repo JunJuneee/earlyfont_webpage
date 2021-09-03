@@ -12,6 +12,7 @@ import PrivateRouter from "./Router/PrivateRouter";
 import NormalLayout from "./Router/NormalLayout";
 import AdminPage from "./Components/AdminPage/AdminPage";
 import AdminEdit from "./Components/AdminPage/AdminEdit";
+import PortfolioDetail from "./Components/BrandFont/PortfolioDetail";
 
 function App() {
   return (
@@ -23,7 +24,11 @@ function App() {
           <NormalLayout path="/" exact component={Home} />
           <NormalLayout path="/branding" exact component={Branding} />
           <NormalLayout path="/portfolio" exact component={Portfolio} />
-          <NormalLayout path="/estimate" exact component={Estimate} />
+          <NormalLayout
+            path="/portfolio/:name"
+            exact
+            component={PortfolioDetail}
+          />
           <NormalLayout path="/estimate" exact component={Estimate} />
           <Route path="/login" exact component={AdminLogin} />
           <PrivateRouter path="/admin" exact component={AdminPage} />

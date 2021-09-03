@@ -45,6 +45,7 @@
   }
   .footer_info > p {
     margin: 0.2rem 0;
+    font-size: 0.9rem;
   }
   .footer_info,
   .footer_info > p:last-child {

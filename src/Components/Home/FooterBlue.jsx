@@ -1,5 +1,7 @@
 import React from "react";
+import { useEffect } from "react";
 import "./Footer.css";
+import axios from "axios";
 
 function FooterBlue(props) {
   return (
