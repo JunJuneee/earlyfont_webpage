@@ -7,7 +7,7 @@ function Advantages(props) {
   const fast_div = useRef();
   const pretty_div = useRef();
   const scrollHeight = window.outerHeight * 2.2;
-  const [left, setLeft] = useState(7);
+  const [left, setLeft] = useState(10);
   const [picNum, setPicNum] = useState(1);
   const [day, setDay] = useState(1);
   const [mobile, setMobile] = useState(false);
@@ -29,7 +29,7 @@ function Advantages(props) {
       (fast_div.current?.offsetTop /
         (scrollHeight -
           fast_div.current?.clientHeight -
-          window.outerHeight * 0.2 -
+          window.outerHeight * (mobile ? 0.2 : 0.35) -
           150)) *
         100
     );
@@ -38,6 +38,7 @@ function Advantages(props) {
       setDay(parseInt(num / 10) + 1);
       setPicNum(parseInt(num / 10) + 1);
       setLeft(num * 0.8 + 4);
+      console.log(num);
     }
   };
 

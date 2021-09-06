@@ -5,7 +5,6 @@ import AOS from "aos";
 
 function Portfolio(props) {
   AOS.init({ offset: 200, delay: 100, duration: 700 });
-  console.log();
   return (
     <div className="portfolio">
       <div className="portfolio_title">
@@ -70,20 +69,22 @@ function Portfolio(props) {
           </Link>
         </div>
         <div className="portfolio_list_grey">
-          <Link to="/portfolio/화고딕" className="portfolio_list_link">
+          <Link to="/portfolio/짱구고딕" className="portfolio_list_link">
             <div className="portfolio_list_content_left">
-              <h2>화고딕</h2>
+              <h2>짱구고딕</h2>
               <p>
-                화고딕은 소프트웨어 개발 기술력을 지닌
+                단순한 형태의 서체로 과거 인터넷이 태동했던 시대의 디자인을
+                참조하였습니다.
                 <br />
-                HWASOFT의 브랜드이미지를 표현한 서체입니다.
+                가벼운 무게감을 가진 서체로서 장난스럽고, 활발한 느낌을 가진
+                폰트 디자인 입니다.
               </p>
             </div>
             <img
               data-aos="flip-right"
               data-aos-easing="ease-out-cubic"
               className="portfolio_thumnail"
-              src="/FontImages/2_1.png"
+              src="/FontImages/4_1.png"
               alt=""
             />
           </Link>
