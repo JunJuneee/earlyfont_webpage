@@ -9,7 +9,9 @@ from flask import Flask , request,jsonify, json,current_app
 from datetime import datetime
 from flask_sqlalchemy import SQLAlchemy
 import schedule
-
+from flask_apscheduler import APScheduler
+import time
+import pythoncom
 
 
 app = Flask(__name__)
@@ -19,7 +21,7 @@ app.config['SQLALCHEMY_DATABASE_URI']="mysql://earlyfont:earlyfont@localhost:330
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] =False
 
 db=SQLAlchemy(app)
-
+scheduler = APScheduler()
 
 class Uploads(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -92,9 +94,10 @@ def loadFontData():
 
 
 def refresh_estimate():
+    pythoncom.CoInitialize()
     file_names = ['estimate_basic.docx','estimate_basicPlus.docx','estimate_premium.docx','estimate_premiumPlus.docx']
     for idx,name in enumerate(file_names):
-        path = os.path.join(current_app.root_path,'../public/Estimates')
+        path = os.path.join(current_app.root_path,'../build/Estimates')
         shutil.copy(
         name,  os.path.join(path, name))
         document = Document("{}/{}".format(path, name))
@@ -105,19 +108,25 @@ def refresh_estimate():
         r.rPr.rFonts.set(qn('w:eastAsia'), '에스코어 드림 5 Medium')
         paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
         document.save(os.path.join(path,name))
-        convert(os.path.join(path,name))
+        convert(os.path.join(path,name),path)
 
 def daily_refresh():
     with app.app_context():
         refresh_estimate()
-schedule.every().day.at("17:47").do(daily_refresh)
+
+
+
+
 
 
     
 if __name__ =='__main__':
+    scheduler.add_job(id='daily update estimates',func=daily_refresh,trigger='cron',hour=0)
+    scheduler.start()
     app.run(debug=True,port=8080)
-    while True:
-        schedule.run_pending()
+    # while True:
+    #     schedule.run_pending()
+    #     time.sleep(1)
     
 
     

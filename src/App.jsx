@@ -13,8 +13,15 @@ import NormalLayout from "./Router/NormalLayout";
 import AdminPage from "./Components/AdminPage/AdminPage";
 import AdminEdit from "./Components/AdminPage/AdminEdit";
 import PortfolioDetail from "./Components/BrandFont/PortfolioDetail";
+import { useSelector } from "react-redux";
+import user from "./Module/user";
+import { useState } from "react";
 
 function App() {
+  // const userInfo = useSelector(user);
+  // // const [isAuth, setIsAuth] = useState(userInfo);
+
+  // console.log(userInfo);
   return (
     <div>
       <Router>

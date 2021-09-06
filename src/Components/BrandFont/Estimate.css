@@ -45,10 +45,12 @@
   transition-timing-function: ease-in;
   cursor: pointer;
 }
-.estimate_download > h2 {
+.estimate_download > a {
   text-align: center;
   font-family: "S-CoreDream-6Bold";
   color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
 }
 .estimate_chart_content:hover {
   background: white;
@@ -76,7 +78,8 @@
 .estimate_services {
   width: 70%;
   text-align: center;
-  margin: 6rem auto;
+  margin: auto;
+  padding: 4rem 0;
   position: relative;
 }
 

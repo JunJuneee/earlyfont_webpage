@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Estimate.css";
 
 function Estimate(props) {
@@ -17,7 +18,9 @@ function Estimate(props) {
             <p>제목용 or 본문용 1종 납품</p>
           </div>
           <div className="estimate_download">
-            <h2>견적서 다운로드</h2>
+            <Link target="_blank" to="/Estimates/estimate_basic.pdf" download>
+              견적서 다운로드
+            </Link>
           </div>
         </div>
 
@@ -34,7 +37,13 @@ function Estimate(props) {
             <p>제목용 or 본문용 1종 납품</p>
           </div>
           <div className="estimate_download">
-            <h2>견적서 다운로드</h2>
+            <Link
+              target="_blank"
+              to="/Estimates/estimate_basicPlus.pdf"
+              download
+            >
+              견적서 다운로드
+            </Link>
           </div>
         </div>
         <div className="estimate_chart_content">
@@ -49,7 +58,9 @@ function Estimate(props) {
             <p>제목용 and 본문용 2종 납품</p>
           </div>
           <div className="estimate_download">
-            <h2>견적서 다운로드</h2>
+            <Link target="_blank" to="/Estimates/estimate_premium.pdf" download>
+              견적서 다운로드
+            </Link>
           </div>
         </div>
         <div className="estimate_chart_content">
@@ -65,7 +76,13 @@ function Estimate(props) {
             <p>제목용 and 본문용 2종 납품</p>
           </div>
           <div className="estimate_download">
-            <h2>견적서 다운로드</h2>
+            <Link
+              target="_blank"
+              to="/Estimates/estimate_premiumPlus.pdf"
+              download
+            >
+              견적서 다운로드
+            </Link>
           </div>
         </div>
       </div>

@@ -1,10 +1,12 @@
 import React from "react";
 
 function PortfolioDetail({ match }) {
-  console.log(match.params.name);
+  let image_dict = { 라디오고딕: 1, 화고딕: 2, 혀니고딕: 3 };
+  let pic_num = image_dict[match.params.name];
+
   return (
     <div className="portfolio_detail">
-      <img src="/FontImages/ladio2.jpg" alt="" />
+      <img src={`/FontImages/${pic_num}_2.jpg`} alt="" />
     </div>
   );
 }

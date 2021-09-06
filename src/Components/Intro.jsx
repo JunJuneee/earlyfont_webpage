@@ -2,8 +2,12 @@ import React from "react";
 import "./Intro.css";
 import "aos/dist/aos.css";
 import AOS from "aos";
+import { useSelector } from "react-redux";
+import user from "../Module/user";
 
 function Intro(props) {
+  const users = useSelector(user);
+  console.log(users);
   AOS.init();
   return (
     <div className="intro">
