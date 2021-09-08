@@ -132,7 +132,7 @@ def daily_refresh():
 
     
 if __name__ =='__main__':
-    scheduler.add_job(id='daily update estimates',func=daily_refresh,trigger='cron',hour=15,minute=51)
+    scheduler.add_job(id='daily update estimates',func=daily_refresh,trigger='cron',hour=0)
     scheduler.start()
     app.run(debug=True,port=8080)
     
