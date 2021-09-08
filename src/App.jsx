@@ -12,16 +12,9 @@ import PrivateRouter from "./Router/PrivateRouter";
 import AdminPage from "./Components/AdminPage/AdminPage";
 import AdminEdit from "./Components/AdminPage/AdminEdit";
 import PortfolioDetail from "./Components/BrandFont/PortfolioDetail";
-import { useSelector } from "react-redux";
-import user from "./Module/user";
-import { useState } from "react";
 import Footer from "./Components/Home/Footer";
 
 function App() {
-  // const userInfo = useSelector(user);
-  // // const [isAuth, setIsAuth] = useState(userInfo);
-
-  // console.log(userInfo);
   return (
     <div>
       <Router>

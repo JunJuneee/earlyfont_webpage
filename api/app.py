@@ -1,17 +1,15 @@
 import shutil
 import os
 from docx import Document
-from docx2pdf import convert
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.enum.style import WD_STYLE_TYPE
 from docx.oxml.ns import qn,nsdecls
 from flask import Flask , request,jsonify, json,current_app
 from datetime import datetime
 from flask_sqlalchemy import SQLAlchemy
-import schedule
 from flask_apscheduler import APScheduler
-import time
 import pythoncom
+import win32com.client as client
 
 
 app = Flask(__name__)
@@ -27,7 +25,6 @@ class Uploads(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     date = db.Column(db.DateTime, nullable=True, default=datetime.now)
     title = db.Column(db.String(100), nullable=False)
-    description = db.Column(db.Text, nullable=False)
     thumnail = db.Column(db.String(100), nullable=False)
     detail_image = db.Column(db.String(100), nullable=False)
     font_file = db.Column(db.String(100), nullable=True, default='')
@@ -36,7 +33,6 @@ class Uploads(db.Model):
         return {
             'id': replypost_list.id,
             'date': replypost_list.date.strftime("%Y/%m/%d %H:%M"),
-            'description' : replypost_list.description,
             'title': replypost_list.title,
             'thumnail' : replypost_list.thumnail,
             'detail_image': replypost_list.detail_image,
@@ -57,14 +53,15 @@ def save_file(file,file_name):
     
 @app.route('/upload',methods=['GET','POST'])
 def upload():
-    
+    all_files = Uploads.query.all()
+    num = len(all_files)+1
     title = request.form.get('title')
-    description = request.form.get('description')
-    thumnail = f"/FontImages/{title}1.png"
-    detail_image = f"/FontImages/{title}2.png"
-    save_file(request.files.get(f"file1"),f"{title}1.png")
-    save_file(request.files.get(f"file2"),f"{title}2.png")
-    new_font= Uploads(title=title,description=description,thumnail=thumnail,detail_image=detail_image)
+    thumnail = f"/FontImages/{num}_1.jpg"
+    detail_image = f"/FontImages/{num}_2.jpg"
+    print(title,thumnail,detail_image)
+    save_file(request.files.get(f"file1"),f"{num}_1.jpg")
+    save_file(request.files.get(f"file2"),f"{num}_2.jpg")
+    new_font= Uploads(title=title,thumnail=thumnail,detail_image=detail_image)
     db.session.add(new_font)
     db.session.commit()
 
@@ -93,6 +90,18 @@ def loadFontData():
     return jsonify({'font': Uploads.serializer(font)})
 
 
+def convert_to_pdf(doc):
+    try:
+        word = client.DispatchEx("Word.Application")
+        new_name = doc.replace(".docx", r".pdf")
+        worddoc = word.Documents.Open(doc)
+        worddoc.SaveAs(new_name, FileFormat = 17)
+        worddoc.Close()
+    except Exception as e:
+            return e
+    finally:
+            word.Quit()
+            
 def refresh_estimate():
     pythoncom.CoInitialize()
     file_names = ['estimate_basic.docx','estimate_basicPlus.docx','estimate_premium.docx','estimate_premiumPlus.docx']
@@ -108,8 +117,10 @@ def refresh_estimate():
         r.rPr.rFonts.set(qn('w:eastAsia'), '에스코어 드림 5 Medium')
         paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
         document.save(os.path.join(path,name))
-        convert(os.path.join(path,name),path)
+        convert_to_pdf(os.path.join(path,name))
 
+
+            
 def daily_refresh():
     with app.app_context():
         refresh_estimate()
@@ -121,12 +132,9 @@ def daily_refresh():
 
     
 if __name__ =='__main__':
-    scheduler.add_job(id='daily update estimates',func=daily_refresh,trigger='cron',hour=0)
+    scheduler.add_job(id='daily update estimates',func=daily_refresh,trigger='cron',hour=15,minute=51)
     scheduler.start()
     app.run(debug=True,port=8080)
-    # while True:
-    #     schedule.run_pending()
-    #     time.sleep(1)
     
 
     

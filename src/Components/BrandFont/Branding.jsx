@@ -54,7 +54,7 @@ function Branding(props) {
               x="0px"
               y="0px"
               width="512.467px"
-              height="875.073px"
+              height="950px"
               viewBox="243.767 126.481 512.467 875.073"
               enable-background="new 243.767 126.481 512.467 875.073"
             >

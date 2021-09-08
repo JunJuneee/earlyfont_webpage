@@ -330,6 +330,9 @@
   max-height: 600px;
 }
 @media screen and (max-width: 960px) {
+  .advantage_container_pretty_img > img {
+    max-width: 300px;
+  }
   .advantage_container_fast {
     width: 80%;
   }
@@ -349,7 +352,7 @@
   }
   .advantage_container_fast > p,
   .advantage_container_texts > p {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
   .advantage_container_fast > h1,
   .advantage_container_texts > h1 {

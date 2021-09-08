@@ -98,11 +98,7 @@
   margin-top: -5%;
 } */
 .branding_feature_contents_container {
-  /* position: relative;
-  max-height: 500px;
-  height: 500px;
-  width: 100%; */
-  margin-top: -2px;
+  margin-top: -3px;
   text-align: center;
   position: relative;
 }
@@ -211,8 +207,7 @@
 }
 
 .branding_font {
-  height: 70vh;
-  background: rgb(210, 209, 255);
+  background: #1b1b63;
   padding: 10rem 0;
   z-index: 10;
   position: relative;
@@ -221,15 +216,17 @@
   text-align: center;
   width: 80%;
   margin: auto;
+  color: white;
 }
 .branding_font_texts > h1 {
   font-family: "S-CoreDream-6Bold";
 
-  color: #181863;
+  color: white;
   font-size: 1.7rem;
 }
 .branding_font_texts > img {
-  width: 60%;
+  width: 100%;
+  max-width: 600px;
   margin: 6rem 0;
 }
 .branding_price {
@@ -244,13 +241,14 @@
 .branding_price_compare > h1,
 .branding_price_texts > h1 {
   font-family: "S-CoreDream-6Bold";
-  margin-bottom: 7rem;
+  margin-bottom: 4rem;
   color: #181863;
   text-align: center;
   font-size: 1.7rem;
 }
 .branding_price_compare > img {
-  width: 70%;
+  width: 100%;
+  max-width: 630px;
   margin: auto;
 }
 .branding_price_texts {
@@ -279,9 +277,10 @@
   border: #181863 3px solid;
   padding: 0.5rem;
   transition: all 0.5s linear;
-  width: fit-content;
+  width: 100%;
   text-align: center;
-  margin-right: 5rem;
+  margin: 0 2rem;
+  max-width: 230px;
 }
 .branding_link_to > a:hover {
   color: white;
@@ -294,8 +293,17 @@
   .branding_banner > h1 {
     font-size: 1.5rem;
   }
+  .branding_banner > p {
+    font-size: 0.9rem;
+  }
   .branding_feature {
     width: 90%;
+  }
+  .branding_font_texts > h1 {
+    font-size: 1.3rem;
+  }
+  .branding_font_texts > p {
+    font-size: 0.9rem;
   }
   .branding_feature_title_container > h1 {
     font-size: 1rem;
@@ -347,6 +355,7 @@
   .branding_price_texts {
     width: 80%;
     margin: 7rem auto;
+    font-size: 0.9rem;
   }
   .branding_link {
     width: 85%;
@@ -355,7 +364,7 @@
 
   .branding_price_compare > h1,
   .branding_price_texts > h1 {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
   }
   .branding_link > h1 {
     font-size: 1.3rem;
@@ -366,6 +375,7 @@
   }
   .branding_link_to {
     justify-content: space-around;
+    align-items: center;
     flex-direction: column;
     height: 10rem;
   }

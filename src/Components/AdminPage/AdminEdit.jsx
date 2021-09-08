@@ -18,14 +18,6 @@ function AdminEdit({ location, match }) {
           value={fontInfo.title || ""}
           onChange={(e) => setFontInfo({ ...fontInfo, title: e.target.value })}
         />
-
-        <TextField
-          label="Description"
-          value={fontInfo.description || ""}
-          onChange={(e) =>
-            setFontInfo({ ...fontInfo, description: e.target.value })
-          }
-        />
         <label className="form_label">
           썸네일 이미지 파일
           <PublishRounded />

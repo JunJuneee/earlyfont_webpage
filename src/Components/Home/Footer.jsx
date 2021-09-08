@@ -2,8 +2,6 @@ import React from "react";
 import "./Footer.css";
 
 function Footer({ match }) {
-  console.log(match);
-
   return (
     <div className="footer">
       <div className="footer_container">

@@ -167,7 +167,8 @@
     background-size: inherit;
   }
   .content_star {
-    left: 31%;
+    height: 100px;
+    left: 37%;
   }
   .content_title {
     width: unset;
@@ -182,8 +183,8 @@
   }
   .content_title > p {
     font-size: 1.3rem;
-    width: 150px;
-    height: 115px;
+    width: 120px;
+    height: 95px;
     padding: 1rem 0;
   }
   .content_text {
@@ -194,6 +195,7 @@
   }
   .content_text > p {
     margin: 1rem 0;
+    font-size: 0.9rem;
   }
 
   .feature_main {

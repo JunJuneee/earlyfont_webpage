@@ -26,6 +26,6 @@ export const userSlice = createSlice({
 
 export const { login, logout, setfontList, deleteFont } = userSlice.actions;
 
-export const user = (state) => state.user;
+export const userInfo = (state) => state.user;
 export const fontlists = (state) => state.user.fontlist;
 export default userSlice.reducer;

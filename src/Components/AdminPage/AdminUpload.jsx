@@ -7,7 +7,6 @@ import { PublishRounded } from "@material-ui/icons";
 
 function AdminUpload({ history }) {
   const [title, setTitle] = useState("");
-  const [description, setdDescription] = useState("");
   const [file1, setFile1] = useState("");
   const [file2, setFile2] = useState("");
   // const [file3, setFile3] = useState("");
@@ -15,7 +14,6 @@ function AdminUpload({ history }) {
     e.preventDefault();
     const data = new FormData();
     data.append("title", title);
-    data.append("description", description);
     data.append("file1", file1.file);
     data.append("file2", file2.file);
     axios
@@ -26,13 +24,6 @@ function AdminUpload({ history }) {
         alert(res.data.success);
         history.push("/admin");
       });
-
-    // setTitle("");
-    // setdDescription("");
-    // setFile1("");
-    // setFile2("");
-    // setFile3("");
-    // return false;
   };
 
   return (
@@ -43,12 +34,6 @@ function AdminUpload({ history }) {
           label="Title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-        />
-        <TextField
-          id="standard-basic2"
-          label="Descrtip"
-          value={description}
-          onChange={(e) => setdDescription(e.target.value)}
         />
         <label className="form_label">
           썸네일 이미지 파일
