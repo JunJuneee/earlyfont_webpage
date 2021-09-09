@@ -3,34 +3,57 @@ import { TextField, Button } from "@material-ui/core";
 import axios from "axios";
 import { PublishRounded } from "@material-ui/icons";
 
-function AdminEdit({ location, match }) {
-  const [fontInfo, setFontInfo] = useState({});
+function AdminEdit({ history, match }) {
+  const [title, setTitle] = useState("");
+  const [file1, setFile1] = useState("");
+  const [file2, setFile2] = useState("");
+
   useEffect(() => {
-    axios
-      .post("/loadFontData", { id: match.params.id })
-      .then((res) => setFontInfo(res.data.font));
+    axios.post("/loadFontData", { id: match.params.id }).then((res) => {
+      setTitle(res.data.font.title);
+      setFile1(res.data.font.thumnail);
+      setFile2(res.data.font.detail_image);
+    });
   }, []);
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const data = new FormData();
+    data.append("id", match.params.id);
+    data.append("title", title);
+    data.append("file1", file1.file);
+    data.append("file2", file2.file);
+    axios
+      .post("/edit", data, {
+        "Content-Type": "multipart/form-data",
+      })
+      .then((res) => {
+        alert(res.data.success);
+        history.push("/admin");
+      });
+  };
   return (
     <div className="adminPage">
-      <form className="adminPage_form">
+      <form className="adminPage_form" onSubmit={onSubmit}>
         <TextField
           label="Title"
-          value={fontInfo.title || ""}
-          onChange={(e) => setFontInfo({ ...fontInfo, title: e.target.value })}
+          value={title || ""}
+          onChange={(e) => setTitle(e.target.value)}
         />
         <label className="form_label">
           썸네일 이미지 파일
           <PublishRounded />
           <input
             type="file"
-            name="file1"
             accept=".png,.jpg"
-            required
+            // required
             onChange={(e) =>
-              setFontInfo({ ...fontInfo, thumnail: e.target.files[0] })
+              setFile1({
+                file: e.target.files[0],
+              })
             }
           />
-          <p>{fontInfo?.thumnail}</p>
+          <p>{file1?.file?.name || file1}</p>
         </label>
         <label className="form_label">
           상세이미지 파일
@@ -38,15 +61,17 @@ function AdminEdit({ location, match }) {
           <input
             type="file"
             accept=".png,.jpg"
-            required
+            // required
             // value={fontInfo.detail_image}
             onChange={(e) =>
-              setFontInfo({ ...fontInfo, detail_image: e.target.files[0] })
+              setFile2({
+                file: e.target.files[0],
+              })
             }
           />
-          <p>{fontInfo?.detail_image}</p>
+          <p>{file2?.file?.name || file2}</p>
         </label>
-        <Button>저장</Button>
+        <Button type="submit">저장</Button>
       </form>
     </div>
   );

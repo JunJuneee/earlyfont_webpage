@@ -58,7 +58,6 @@ def upload():
     title = request.form.get('title')
     thumnail = f"/FontImages/{num}_1.jpg"
     detail_image = f"/FontImages/{num}_2.jpg"
-    print(title,thumnail,detail_image)
     save_file(request.files.get(f"file1"),f"{num}_1.jpg")
     save_file(request.files.get(f"file2"),f"{num}_2.jpg")
     new_font= Uploads(title=title,thumnail=thumnail,detail_image=detail_image)
@@ -67,6 +66,23 @@ def upload():
 
     return jsonify({'success':'등록되었습니다!'})
 
+@app.route('/edit',methods=['GET','POST'])
+def edit():
+    fontInfo = Uploads.query.filter_by(id=request.form.get('id')).first()
+    title = request.form.get('title')
+    thumnail = f"/FontImages/{fontInfo.id}_1.jpg"
+    if thumnail != fontInfo.thumnail:
+        save_file(request.files.get(f"file1"),f"{fontInfo.id}_1.jpg")
+        fontInfo.thumnail = thumnail
+    detail_image = f"/FontImages/{fontInfo.id}_2.jpg"
+    if detail_image != fontInfo.detail_image:
+        save_file(request.files.get(f"file2"),f"{fontInfo.id}_2.jpg")
+        fontInfo.detail_image = detail_image
+    fontInfo.title = title
+    db.session.commit()
+
+    return jsonify({'success':'변경되었습니다!'})
+
 @app.route('/fontList',methods=['GET','POST'])
 def fontList():
     lists = Uploads.query.order_by(Uploads.id.desc()).all()
@@ -74,8 +90,6 @@ def fontList():
 
 @app.route('/delete',methods=['GET','POST'])
 def delete():
-    lists = Uploads.query.order_by(Uploads.id.desc()).all()
-
     request_data = json.loads(request.data)
     selected_font = Uploads.query.filter_by(id=request_data['id']).first()
     db.session.delete(selected_font)
