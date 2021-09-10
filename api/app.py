@@ -12,7 +12,7 @@ import pythoncom
 import win32com.client as client
 
 
-app = Flask(__name__)
+app = Flask(__name__,static_folder='../build', static_url_path='/')
 app.app_context()
 
 app.config['SQLALCHEMY_DATABASE_URI']="mysql://earlyfont:earlyfont@localhost:3306/earlyfont"
@@ -40,7 +40,10 @@ class Uploads(db.Model):
         
     def __repr__(self):
         return f"Uploads(title : {self.title},date : {self.date}, description: {self.description})"
-
+@app.route('/')
+def index():
+    print(current_app.root_path)
+    return current_app.send_static_file('index.html')
 
 def save_file(file,file_name):
     path = os.path.join(
