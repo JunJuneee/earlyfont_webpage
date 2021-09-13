@@ -40,10 +40,16 @@ class Uploads(db.Model):
         
     def __repr__(self):
         return f"Uploads(title : {self.title},date : {self.date}, description: {self.description})"
+
+@app.route('/admin')
+@app.route('/branding')
+@app.route('/portfolio')
+@app.route('/estimate')
 @app.route('/')
 def index():
-    print(current_app.root_path)
     return current_app.send_static_file('index.html')
+
+
 
 def save_file(file,file_name):
     path = os.path.join(
