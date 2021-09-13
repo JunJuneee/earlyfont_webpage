@@ -112,6 +112,11 @@ def loadFontData():
     font = Uploads.query.filter_by(id=int(request_data['id'])).first()
     return jsonify({'font': Uploads.serializer(font)})
 
+@app.route('/loadFontSingleData',methods=['GET','POST'])
+def loadFontSingleData():
+    request_data = json.loads(request.data)
+    font = Uploads.query.filter_by(title=request_data['name']).first()
+    return jsonify({'url': font.detail_image})
 
 def convert_to_pdf(doc):
     try:
