@@ -1,58 +1,34 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Portfolio.css";
 import AOS from "aos";
+import axios from "axios";
+import { useDispatch } from "react-redux";
+import { fontlists, setfontList } from "../../Module/user";
+import { useSelector } from "react-redux";
 
 function Portfolio(props) {
   AOS.init({ offset: 200, delay: 100, duration: 700 });
+  const dispatch = useDispatch();
+  const fontlist = useSelector(fontlists);
+  useEffect(() => {
+    axios
+      .get("/fontList")
+      .then((res) => dispatch(setfontList(res.data.uploaded_list)));
+  }, []);
   return (
     <div className="portfolio">
       <div className="portfolio_list_container">
-        <div className="portfolio_list_white">
-          <Link to="/portfolio/라디오고딕" className="portfolio_list_link">
-            <img
-              className="portfolio_thumnail"
-              src="/FontImages/1_1.jpg"
-              alt=""
-            />
-          </Link>
-        </div>
-        <div className="portfolio_list_white ">
-          <Link
-            to="/portfolio/화고딕"
-            className="portfolio_list_link portfolio_reverse"
-          >
-            <img
-              data-aos="flip-right"
-              data-aos-easing="ease-out-cubic"
-              className="portfolio_thumnail"
-              src="/FontImages/2_1.jpg"
-              alt=""
-            />
-          </Link>
-        </div>
-        <div className="portfolio_list_white">
-          <Link to="/portfolio/혀니고딕" className="portfolio_list_link">
-            <img
-              data-aos="flip-left"
-              data-aos-easing="ease-out-cubic"
-              className="portfolio_thumnail"
-              src="/FontImages/3_1.jpg"
-              alt=""
-            />
-          </Link>
-        </div>
-        <div className="portfolio_list_grey">
-          <Link to="/portfolio/짱구고딕" className="portfolio_list_link">
-            <img
-              data-aos="flip-right"
-              data-aos-easing="ease-out-cubic"
-              className="portfolio_thumnail"
-              src="/FontImages/4_1.jpg"
-              alt=""
-            />
-          </Link>
-        </div>
+        {fontlist.map((item) => (
+          <div key={item.id} className="portfolio_list_white">
+            <Link
+              to={`/portfolio/${item.title}`}
+              className="portfolio_list_link"
+            >
+              <img className="portfolio_thumnail" src={item.thumnail} alt="" />
+            </Link>
+          </div>
+        ))}
       </div>
       <p className="introFont_more">더보기</p>
       <div className="branding_link_to mt-4">

@@ -29,7 +29,7 @@ function Advantages(props) {
       (fast_div.current?.offsetTop /
         (scrollHeight -
           fast_div.current?.clientHeight -
-          window.outerHeight * (mobile ? 0.2 : 0.35) -
+          window.outerHeight * (mobile ? 0.2 : 0.4) -
           150)) *
         100
     );

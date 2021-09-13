@@ -64,8 +64,8 @@ function Branding(props) {
                 stroke="#1b1b63"
                 stroke-width="8"
                 stroke-miterlimit="10"
-                x1="302.471"
-                y1="128.034"
+                x1="250"
+                y1="0"
                 x2="464.659"
                 y2="512.917"
               />
