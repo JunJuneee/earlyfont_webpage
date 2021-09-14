@@ -95,4 +95,7 @@
   .portfolio_reverse {
     flex-direction: column-reverse !important;
   }
+  .hide_botton {
+    display: none;
+  }
 }

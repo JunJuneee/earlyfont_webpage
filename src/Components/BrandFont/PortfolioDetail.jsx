@@ -15,7 +15,14 @@ function PortfolioDetail({ match, history }) {
       <img src={url} alt="" />
       <div className="branding_link_to mt-4">
         <Link to="/branding">타이포브랜딩 소개</Link>
-        <Link onClick={() => history.goBack()}>포트폴리오 보기</Link>
+        <Link
+          className="hide_botton"
+          onClick={() => {
+            history.goBack();
+          }}
+        >
+          포트폴리오 보기
+        </Link>
       </div>
     </div>
   );
