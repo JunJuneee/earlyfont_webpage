@@ -5,6 +5,7 @@ export const userSlice = createSlice({
   initialState: {
     user: null,
     fontlist: [],
+    pageNum: 1,
   },
   reducers: {
     login: (state, action) => {
@@ -21,11 +22,16 @@ export const userSlice = createSlice({
         (list) => list.id !== action.payload
       );
     },
+    setPageNum: (state, action) => {
+      state.pageNum = action.payload;
+    },
   },
 });
 
-export const { login, logout, setfontList, deleteFont } = userSlice.actions;
+export const { login, logout, setfontList, deleteFont, setPageNum } =
+  userSlice.actions;
 
 export const userInfo = (state) => state.user;
 export const fontlists = (state) => state.user.fontlist;
+export const pageNum = (state) => state.user.pageNum;
 export default userSlice.reducer;

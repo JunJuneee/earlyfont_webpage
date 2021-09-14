@@ -4,14 +4,15 @@ import "./Portfolio.css";
 import AOS from "aos";
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import { fontlists, setfontList } from "../../Module/user";
+import { fontlists, setfontList, pageNum, setPageNum } from "../../Module/user";
 import { useSelector } from "react-redux";
 
 function Portfolio(props) {
   AOS.init({ offset: 200, delay: 100, duration: 700 });
   const dispatch = useDispatch();
   const fontlist = useSelector(fontlists);
-  const [showNum, setShowNum] = useState(1);
+  const pageNo = useSelector(pageNum);
+  console.log(pageNo);
   useEffect(() => {
     axios
       .get("/api/fontList")
@@ -20,7 +21,7 @@ function Portfolio(props) {
   return (
     <div className="portfolio">
       <div className="portfolio_list_container">
-        {fontlist.slice(0, showNum * 4).map((item) => (
+        {fontlist.slice(0, pageNo * 4).map((item) => (
           <div key={item.id} className="portfolio_list_white">
             <Link
               to={`/portfolio/${item.title}`}
@@ -34,7 +35,7 @@ function Portfolio(props) {
       <p
         className="introFont_more"
         onClick={() => {
-          setShowNum(showNum + 1);
+          dispatch(setPageNum(pageNo + 1));
         }}
       >
         더보기
