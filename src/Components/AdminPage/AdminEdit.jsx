@@ -9,7 +9,7 @@ function AdminEdit({ history, match }) {
   const [file2, setFile2] = useState("");
 
   useEffect(() => {
-    axios.post("/loadFontData", { id: match.params.id }).then((res) => {
+    axios.post("/api/loadFontData", { id: match.params.id }).then((res) => {
       setTitle(res.data.font.title);
       setFile1(res.data.font.thumnail);
       setFile2(res.data.font.detail_image);
@@ -24,7 +24,7 @@ function AdminEdit({ history, match }) {
     data.append("file1", file1.file);
     data.append("file2", file2.file);
     axios
-      .post("/edit", data, {
+      .post("/api/edit", data, {
         "Content-Type": "multipart/form-data",
       })
       .then((res) => {

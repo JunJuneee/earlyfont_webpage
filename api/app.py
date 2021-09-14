@@ -39,7 +39,7 @@ class Uploads(db.Model):
         }
         
     def __repr__(self):
-        return f"Uploads(title : {self.title},date : {self.date}, description: {self.description})"
+        return f"Uploads(title : {self.title},date : {self.date})"
 
 @app.route('/admin')
 @app.route('/branding')
@@ -60,7 +60,7 @@ def save_file(file,file_name):
     file.save(path2)
     
     
-@app.route('/upload',methods=['GET','POST'])
+@app.route('/api/upload',methods=['GET','POST'])
 def upload():
     all_files = Uploads.query.all()
     num = len(all_files)+1
@@ -75,7 +75,7 @@ def upload():
 
     return jsonify({'success':'등록되었습니다!'})
 
-@app.route('/edit',methods=['GET','POST'])
+@app.route('/api/edit',methods=['GET','POST'])
 def edit():
     fontInfo = Uploads.query.filter_by(id=request.form.get('id')).first()
     title = request.form.get('title')
@@ -92,12 +92,12 @@ def edit():
 
     return jsonify({'success':'변경되었습니다!'})
 
-@app.route('/fontList',methods=['GET','POST'])
+@app.route('/api/fontList',methods=['GET','POST'])
 def fontList():
     lists = Uploads.query.order_by(Uploads.id.desc()).all()
     return jsonify({'uploaded_list':[*map(Uploads.serializer,lists)]})
 
-@app.route('/delete',methods=['GET','POST'])
+@app.route('/api/delete',methods=['GET','POST'])
 def delete():
     request_data = json.loads(request.data)
     selected_font = Uploads.query.filter_by(id=request_data['id']).first()
@@ -106,13 +106,13 @@ def delete():
     
     return jsonify({'success':'삭제하였습니다.'})
     
-@app.route('/loadFontData',methods=['GET','POST'])
+@app.route('/api/loadFontData',methods=['GET','POST'])
 def loadFontData():
     request_data = json.loads(request.data)
     font = Uploads.query.filter_by(id=int(request_data['id'])).first()
     return jsonify({'font': Uploads.serializer(font)})
 
-@app.route('/loadFontSingleData',methods=['GET','POST'])
+@app.route('/api/loadFontSingleData',methods=['GET','POST'])
 def loadFontSingleData():
     request_data = json.loads(request.data)
     font = Uploads.query.filter_by(title=request_data['name']).first()

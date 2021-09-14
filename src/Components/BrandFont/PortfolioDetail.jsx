@@ -7,7 +7,7 @@ function PortfolioDetail({ match, history }) {
   console.log(url);
   useEffect(() => {
     axios
-      .post("/loadFontSingleData", { name: match.params.name })
+      .post("/api/loadFontSingleData", { name: match.params.name })
       .then((res) => setUrl(res.data.url));
   }, []);
 
