@@ -80,11 +80,11 @@ def edit():
     fontInfo = Uploads.query.filter_by(id=request.form.get('id')).first()
     title = request.form.get('title')
     thumnail = f"/FontImages/{fontInfo.id}_1.jpg"
-    if thumnail != fontInfo.thumnail:
+    if request.files.get(f"file1"):
         save_file(request.files.get(f"file1"),f"{fontInfo.id}_1.jpg")
         fontInfo.thumnail = thumnail
     detail_image = f"/FontImages/{fontInfo.id}_2.jpg"
-    if detail_image != fontInfo.detail_image:
+    if request.files.get(f"file2"):
         save_file(request.files.get(f"file2"),f"{fontInfo.id}_2.jpg")
         fontInfo.detail_image = detail_image
     fontInfo.title = title
