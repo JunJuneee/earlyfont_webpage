@@ -14,7 +14,7 @@ function Portfolio(props) {
   const [showNum, setShowNum] = useState(1);
   useEffect(() => {
     axios
-      .get("/fontList")
+      .get("/api/fontList")
       .then((res) => dispatch(setfontList(res.data.uploaded_list)));
   }, []);
   return (

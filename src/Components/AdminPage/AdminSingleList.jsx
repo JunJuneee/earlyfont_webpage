@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 function AdminSingleList({ id, title, date }) {
   const dispatch = useDispatch();
   const deleteList = () => {
-    axios.post("/delete", { id }).then((res) => {
+    axios.post("/api/delete", { id }).then((res) => {
       alert(res.data.success);
       dispatch(deleteFont(id));
     });

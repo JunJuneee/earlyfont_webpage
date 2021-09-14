@@ -17,7 +17,7 @@ function AdminUpload({ history }) {
     data.append("file1", file1.file);
     data.append("file2", file2.file);
     axios
-      .post("/upload", data, {
+      .post("/api/upload", data, {
         "Content-Type": "multipart/form-data",
       })
       .then((res) => {

@@ -18,7 +18,7 @@ function AdminPage(props) {
   };
   useEffect(() => {
     axios
-      .get("/fontList")
+      .get("/api/fontList")
       .then((res) => dispatch(setfontList(res.data.uploaded_list)));
   }, []);
 

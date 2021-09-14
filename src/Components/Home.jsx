@@ -4,7 +4,6 @@ import Content from "./Home/Content";
 import Feature from "./Home/Feature";
 import Advantages from "./Home/Advantages";
 import End from "./Home/End";
-import axios from "axios";
 
 function Home() {
   const [starEndHeight, setStarEndHeight] = useState(0);
