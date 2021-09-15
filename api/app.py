@@ -133,7 +133,7 @@ def convert_to_pdf(doc):
             
 def refresh_estimate():
     pythoncom.CoInitialize()
-    file_names = ['estimate_basic.docx','estimate_basicPlus.docx','estimate_premium.docx','estimate_premiumPlus.docx']
+    file_names = ['Earlyfont_basic.docx','Earlyfont_basicPlus.docx','Earlyfont_premium.docx','Earlyfont_premiumPlus.docx']
     for idx,name in enumerate(file_names):
         path = os.path.join(current_app.root_path,'../build/Estimates')
         shutil.copy(
