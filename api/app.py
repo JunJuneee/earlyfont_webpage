@@ -44,6 +44,7 @@ class Uploads(db.Model):
 @app.route('/admin')
 @app.route('/branding')
 @app.route('/portfolio')
+@app.route('/portfolio/<string:name>')
 @app.route('/estimate')
 @app.route('/')
 def index():

@@ -61,11 +61,10 @@
   color: grey;
 }
 .portfolio_detail {
-  width: 60%;
-  margin: auto;
+  text-align: center;
 }
 .portfolio_detail > img {
-  width: 100%;
+  width: 1000px;
 }
 .mt-4 {
   margin-top: 4rem;
@@ -81,6 +80,9 @@
     flex-direction: column;
   }
   .portfolio_detail {
+    width: 100%;
+  }
+  .portfolio_detail > img {
     width: 100%;
   }
   .portfolio_thumnail {
