@@ -8,11 +8,10 @@ import { fontlists, setfontList, pageNum, setPageNum } from "../../Module/user";
 import { useSelector } from "react-redux";
 
 function Portfolio(props) {
-  AOS.init({ offset: 200, delay: 100, duration: 700 });
+  AOS.init({ offset: 200, delay: 100, duration: 1500 });
   const dispatch = useDispatch();
   const fontlist = useSelector(fontlists);
   const pageNo = useSelector(pageNum);
-  console.log(pageNo);
   useEffect(() => {
     axios
       .get("/api/fontList")
@@ -22,7 +21,11 @@ function Portfolio(props) {
     <div className="portfolio">
       <div className="portfolio_list_container">
         {fontlist.slice(0, pageNo * 4).map((item) => (
-          <div key={item.id} className="portfolio_list_white">
+          <div
+            key={item.id}
+            className="portfolio_list_white"
+            data-aos="flip-left"
+          >
             <Link
               to={`/portfolio/${item.title}`}
               className="portfolio_list_link"

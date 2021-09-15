@@ -18,7 +18,7 @@ function Estimate(props) {
             <p>제목용 or 본문용 1종 납품</p>
           </div>
           <div className="estimate_download">
-            <Link target="_blank" to="/Estimates/estimate_basic.pdf" download>
+            <Link target="_blank" to="/Estimates/Earlyfont_basic.pdf" download>
               견적서 다운로드
             </Link>
           </div>
@@ -39,7 +39,7 @@ function Estimate(props) {
           <div className="estimate_download">
             <Link
               target="_blank"
-              to="/Estimates/estimate_basicPlus.pdf"
+              to="/Estimates/Earlyfont_basicPlus.pdf"
               download
             >
               견적서 다운로드
@@ -58,7 +58,11 @@ function Estimate(props) {
             <p>제목용 and 본문용 2종 납품</p>
           </div>
           <div className="estimate_download">
-            <Link target="_blank" to="/Estimates/estimate_premium.pdf" download>
+            <Link
+              target="_blank"
+              to="/Estimates/Earlyfont_premium.pdf"
+              download
+            >
               견적서 다운로드
             </Link>
           </div>
@@ -78,7 +82,7 @@ function Estimate(props) {
           <div className="estimate_download">
             <Link
               target="_blank"
-              to="/Estimates/estimate_premiumPlus.pdf"
+              to="/Estimates/Earlyfont_premiumPlus.pdf"
               download
             >
               견적서 다운로드
