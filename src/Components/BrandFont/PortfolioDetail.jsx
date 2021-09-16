@@ -3,16 +3,19 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 function PortfolioDetail({ match, history }) {
-  const [url, setUrl] = useState("");
+  const [fontInfo, setFontInfo] = useState("");
+  console.log(fontInfo);
   useEffect(() => {
     axios
       .post("/api/loadFontSingleData", { name: match.params.name })
-      .then((res) => setUrl(res.data.url));
+      .then((res) => {
+        setFontInfo(res.data.font);
+      });
   }, []);
 
   return (
     <div className="portfolio_detail">
-      <img src={url} alt="" />
+      <img src={fontInfo.detail_image} alt="" />
       <div className="branding_link_to mt-4">
         <Link to="/branding">타이포브랜딩 소개</Link>
         <Link
@@ -24,6 +27,25 @@ function PortfolioDetail({ match, history }) {
           포트폴리오 보기
         </Link>
       </div>
+      {fontInfo.font_file && (
+        <div className="branding_link_to mt-4">
+          <Link
+            target="_blank"
+            to={`/FontImages/${fontInfo.title}.otf`}
+            download
+          >
+            otf 다운로드
+          </Link>
+          <Link
+            className="hide_botton"
+            target="_blank"
+            to={`/FontImages/${fontInfo.title}.ttf`}
+            download
+          >
+            ttf 다운로드
+          </Link>
+        </div>
+      )}
     </div>
   );
 }

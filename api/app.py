@@ -27,15 +27,16 @@ class Uploads(db.Model):
     title = db.Column(db.String(100), nullable=False)
     thumnail = db.Column(db.String(100), nullable=False)
     detail_image = db.Column(db.String(100), nullable=False)
-    font_file = db.Column(db.String(100), nullable=True, default='')
+    font_file = db.Column(db.Boolean, nullable=True, default=False)
     
-    def serializer(replypost_list):
+    def serializer(font_info):
         return {
-            'id': replypost_list.id,
-            'date': replypost_list.date.strftime("%Y/%m/%d %H:%M"),
-            'title': replypost_list.title,
-            'thumnail' : replypost_list.thumnail,
-            'detail_image': replypost_list.detail_image,
+            'id': font_info.id,
+            'date': font_info.date.strftime("%Y/%m/%d %H:%M"),
+            'title': font_info.title,
+            'thumnail' : font_info.thumnail,
+            'detail_image': font_info.detail_image,
+            'font_file' : font_info.font_file
         }
         
     def __repr__(self):
@@ -44,12 +45,14 @@ class Uploads(db.Model):
 @app.route('/admin')
 @app.route('/branding')
 @app.route('/portfolio')
-@app.route('/portfolio/<string:name>')
 @app.route('/estimate')
 @app.route('/')
 def index():
     return current_app.send_static_file('index.html')
 
+@app.route('/portfolio/<string:name>')
+def index2(name):
+    return current_app.send_static_file('index.html')
 
 
 def save_file(file,file_name):
@@ -63,14 +66,17 @@ def save_file(file,file_name):
     
 @app.route('/api/upload',methods=['GET','POST'])
 def upload():
-    all_files = Uploads.query.all()
-    num = len(all_files)+1
+    num = Uploads.query.order_by(Uploads.id.desc()).first().id+1
     title = request.form.get('title')
     thumnail = f"/FontImages/{num}_1.jpg"
     detail_image = f"/FontImages/{num}_2.jpg"
     save_file(request.files.get(f"file1"),f"{num}_1.jpg")
     save_file(request.files.get(f"file2"),f"{num}_2.jpg")
     new_font= Uploads(title=title,thumnail=thumnail,detail_image=detail_image)
+    if request.files.get(f"file3"):
+        save_file(request.files.get(f"file3"),f"{title}.ttf")
+        save_file(request.files.get(f"file4"),f"{title}.otf")
+        new_font= Uploads(title=title,thumnail=thumnail,detail_image=detail_image,font_file=True)
     db.session.add(new_font)
     db.session.commit()
 
@@ -88,6 +94,11 @@ def edit():
     if request.files.get(f"file2"):
         save_file(request.files.get(f"file2"),f"{fontInfo.id}_2.jpg")
         fontInfo.detail_image = detail_image
+    if request.files.get(f"file3") :
+        save_file(request.files.get(f"file3"),f"{title}.ttf")
+    if request.files.get(f"file4"):
+        save_file(request.files.get(f"file4"),f"{title}.otf")
+        fontInfo.font_file = True
     fontInfo.title = title
     db.session.commit()
 
@@ -117,7 +128,7 @@ def loadFontData():
 def loadFontSingleData():
     request_data = json.loads(request.data)
     font = Uploads.query.filter_by(title=request_data['name']).first()
-    return jsonify({'url': font.detail_image})
+    return jsonify({'font': Uploads.serializer(font)})
 
 def convert_to_pdf(doc):
     try:
