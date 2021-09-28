@@ -74,8 +74,7 @@ def upload():
     save_file(request.files.get(f"file2"),f"{num}_2.jpg")
     new_font= Uploads(title=title,thumnail=thumnail,detail_image=detail_image)
     if request.files.get(f"file3"):
-        save_file(request.files.get(f"file3"),f"{title}.ttf")
-        save_file(request.files.get(f"file4"),f"{title}.otf")
+        save_file(request.files.get(f"file3"),f"{title}.zip")
         new_font= Uploads(title=title,thumnail=thumnail,detail_image=detail_image,font_file=True)
     db.session.add(new_font)
     db.session.commit()
@@ -95,9 +94,7 @@ def edit():
         save_file(request.files.get(f"file2"),f"{fontInfo.id}_2.jpg")
         fontInfo.detail_image = detail_image
     if request.files.get(f"file3") :
-        save_file(request.files.get(f"file3"),f"{title}.ttf")
-    if request.files.get(f"file4"):
-        save_file(request.files.get(f"file4"),f"{title}.otf")
+        save_file(request.files.get(f"file3"),f"{title}.zip")
         fontInfo.font_file = True
     fontInfo.title = title
     db.session.commit()

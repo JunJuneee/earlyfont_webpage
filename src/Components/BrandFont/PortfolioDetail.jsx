@@ -16,33 +16,35 @@ function PortfolioDetail({ match, history }) {
   return (
     <div className="portfolio_detail">
       <img src={fontInfo.detail_image} alt="" />
-      <div className="branding_link_to mt-4">
-        <Link to="/branding">타이포브랜딩 소개</Link>
-        <Link
-          className="hide_botton"
-          onClick={() => {
-            history.goBack();
-          }}
-        >
-          포트폴리오 보기
-        </Link>
-      </div>
-      {fontInfo.font_file && (
+
+      {fontInfo.font_file ? (
         <div className="branding_link_to mt-4">
           <Link
             target="_blank"
-            to={`/FontImages/${fontInfo.title}.otf`}
+            to={`/FontImages/${fontInfo.title}.zip`}
             download
           >
-            otf 다운로드
+            폰트 다운로드
           </Link>
           <Link
             className="hide_botton"
-            target="_blank"
-            to={`/FontImages/${fontInfo.title}.ttf`}
-            download
+            onClick={() => {
+              history.goBack();
+            }}
           >
-            ttf 다운로드
+            포트폴리오 보기
+          </Link>
+        </div>
+      ) : (
+        <div className="branding_link_to mt-4">
+          <Link to="/branding">타이포브랜딩 소개</Link>
+          <Link
+            className="hide_botton"
+            onClick={() => {
+              history.goBack();
+            }}
+          >
+            포트폴리오 보기
           </Link>
         </div>
       )}
