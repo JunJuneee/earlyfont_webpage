@@ -8,19 +8,14 @@ function AdminEdit({ history, match }) {
   const [file1, setFile1] = useState("");
   const [file2, setFile2] = useState("");
   const [file3, setFile3] = useState("");
-  const [file4, setFile4] = useState("");
 
   useEffect(() => {
     axios.post("/api/loadFontData", { id: match.params.id }).then((res) => {
-      console.log(file4?.file?.name);
       setTitle(res.data.font.title);
       setFile1(res.data.font.thumnail);
       setFile2(res.data.font.detail_image);
       setFile3(
-        `${res.data.font.font_file ? `${res.data.font.title}.ttf` : ""}`
-      );
-      setFile4(
-        `${res.data.font.font_file ? `${res.data.font.title}.otf` : ""}`
+        `${res.data.font.font_file ? `${res.data.font.title}.zip` : ""}`
       );
     });
   }, []);
@@ -33,7 +28,6 @@ function AdminEdit({ history, match }) {
     data.append("file1", file1.file);
     data.append("file2", file2.file);
     data.append("file3", file3.file);
-    data.append("file4", file4.file);
     axios
       .post("/api/edit", data, {
         "Content-Type": "multipart/form-data",
@@ -80,11 +74,11 @@ function AdminEdit({ history, match }) {
           <p>{file2?.file?.name || file2}</p>
         </label>
         <label className="form_label">
-          폰트파일 파일 (TTF)
+          폰트파일 파일
           <PublishRounded />
           <input
             type="file"
-            accept=".ttf"
+            accept=".zip"
             onChange={(e) =>
               setFile3({
                 file: e.target.files[0],
@@ -93,20 +87,7 @@ function AdminEdit({ history, match }) {
           />
           <p>{file3?.file?.name || file3}</p>
         </label>
-        <label className="form_label">
-          폰트파일 파일 (OTF)
-          <PublishRounded />
-          <input
-            type="file"
-            accept=".otf"
-            onChange={(e) =>
-              setFile4({
-                file: e.target.files[0],
-              })
-            }
-          />
-          <p>{file4?.file?.name || file4}</p>
-        </label>
+
         <Button type="submit">저장</Button>
       </form>
     </div>

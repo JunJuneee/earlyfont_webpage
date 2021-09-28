@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 
 function PortfolioDetail({ match, history }) {
   const [fontInfo, setFontInfo] = useState("");
-  console.log(fontInfo);
   useEffect(() => {
     axios
       .post("/api/loadFontSingleData", { name: match.params.name })
