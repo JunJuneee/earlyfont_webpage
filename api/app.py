@@ -54,6 +54,10 @@ def index():
 def index2(name):
     return current_app.send_static_file('index.html')
 
+@app.route('/sitemap.xml')
+def sitemap():
+    return current_app.send_static_file('sitemap.xml')
+
 
 def save_file(file,file_name):
     path = os.path.join(
