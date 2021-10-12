@@ -59,7 +59,7 @@ def sitemap():
     return current_app.send_static_file('sitemap.xml')
 
 @app.route('/robots.txt')
-def sitemap():
+def robots():
     return current_app.send_static_file('robots.txt')
 
 
