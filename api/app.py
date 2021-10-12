@@ -58,6 +58,10 @@ def index2(name):
 def sitemap():
     return current_app.send_static_file('sitemap.xml')
 
+@app.route('/robots.txt')
+def sitemap():
+    return current_app.send_static_file('robots.txt')
+
 
 def save_file(file,file_name):
     path = os.path.join(
