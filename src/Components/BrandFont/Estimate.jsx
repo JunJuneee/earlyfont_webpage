@@ -9,7 +9,7 @@ function Estimate(props) {
         <div className="estimate_chart_content">
           <div className="estimate_chart_content_option">
             <h2>베이직</h2>
-            <p>(5백만원)</p>
+            <p>(7백만원)</p>
           </div>
           <div className="estimate_chart_content_title">
             <p>국문 2,350자</p>
@@ -27,7 +27,7 @@ function Estimate(props) {
         <div className="estimate_chart_content">
           <div className="estimate_chart_content_option">
             <h2>베이직플러스</h2>
-            <p>(7백만원)</p>
+            <p>(9백만원)</p>
           </div>
           <div className="estimate_chart_content_title">
             <p>국문 2,350자</p>
@@ -49,7 +49,7 @@ function Estimate(props) {
         <div className="estimate_chart_content">
           <div className="estimate_chart_content_option">
             <h2>프리미엄</h2>
-            <p>(8백만원)</p>
+            <p>(1천만원)</p>
           </div>
           <div className="estimate_chart_content_title">
             <p>국문 2,350자</p>
@@ -70,7 +70,7 @@ function Estimate(props) {
         <div className="estimate_chart_content">
           <div className="estimate_chart_content_option">
             <h2>프리미엄플러스</h2>
-            <p>(1천만원)</p>
+            <p>(1천2백만원)</p>
           </div>
           <div className="estimate_chart_content_title">
             <p>국문 2,350자</p>
@@ -102,8 +102,8 @@ function Estimate(props) {
           납품됩니다.
         </p>
         <p>
-          전체글자(11,172자) 개발 / 용도, 굵기파생 추가 시 별도 견적과 기간이
-          추가됩니다.
+          전체글자(11,172자) 개발 / 기존 로고타입 카피 / 용도, 굵기파생 추가 시
+          별도 견적과 기간이 추가됩니다.
         </p>
       </div>
       <div className="estimate_contact">

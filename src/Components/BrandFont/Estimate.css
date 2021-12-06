@@ -71,6 +71,7 @@
   width: fit-content;
   margin: auto;
   padding: 8rem 0 6rem;
+  text-align: center;
 }
 .estimate_explain > p {
   margin: 0.5rem 0;
