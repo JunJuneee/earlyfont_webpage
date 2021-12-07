@@ -24,6 +24,15 @@ function AdminPage(props) {
 
   return (
     <div className="adminpage">
+      <div className="estimate_buttons">
+        <Button>
+          <Link to="/estimates_upload">견적서 업로드</Link>{" "}
+        </Button>
+        <Button>
+          <Link to="/estimates_edit">견적 수정</Link>{" "}
+        </Button>
+      </div>
+
       <div className="adminpage_listTitle">
         <ul className="adminpage_table">
           <li className="adminpage_table_no">No</li>

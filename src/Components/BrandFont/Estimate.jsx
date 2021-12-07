@@ -1,21 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Estimate.css";
+import axios from "axios";
 
 function Estimate(props) {
+  const [estimatesList, setEstimatesList] = useState([]);
+  useEffect(() => {
+    axios.get("/api/estimates_edit").then((res) => {
+      setEstimatesList(res.data.estimates_lists);
+    });
+  }, []);
   return (
     <div className="estimate">
       <div className="estimate_chart">
         <div className="estimate_chart_content">
           <div className="estimate_chart_content_option">
             <h2>베이직</h2>
-            <p>(7백만원)</p>
+            <p>{estimatesList[0]?.texts[0]}</p>
           </div>
           <div className="estimate_chart_content_title">
-            <p>국문 2,350자</p>
-            <p>영문/숫자/약물</p>
-            <p>시안 총 5종</p>
-            <p>제목용 or 본문용 1종 납품</p>
+            {estimatesList[0]?.texts?.slice(1).map((item) => (
+              <p>{item}</p>
+            ))}
           </div>
           <div className="estimate_download">
             <Link target="_blank" to="/Estimates/Earlyfont_basic.pdf" download>
@@ -27,14 +33,12 @@ function Estimate(props) {
         <div className="estimate_chart_content">
           <div className="estimate_chart_content_option">
             <h2>베이직플러스</h2>
-            <p>(9백만원)</p>
+            <p>{estimatesList[1]?.texts[0]}</p>
           </div>
           <div className="estimate_chart_content_title">
-            <p>국문 2,350자</p>
-            <p>상용 외 빈출자 322자</p>
-            <p>영문/숫자/약물</p>
-            <p>시안 총 5종</p>
-            <p>제목용 or 본문용 1종 납품</p>
+            {estimatesList[1]?.texts?.slice(1).map((item) => (
+              <p>{item}</p>
+            ))}
           </div>
           <div className="estimate_download">
             <Link
@@ -49,13 +53,12 @@ function Estimate(props) {
         <div className="estimate_chart_content">
           <div className="estimate_chart_content_option">
             <h2>프리미엄</h2>
-            <p>(1천만원)</p>
+            <p>{estimatesList[2]?.texts[0]}</p>
           </div>
           <div className="estimate_chart_content_title">
-            <p>국문 2,350자</p>
-            <p>영문/숫자/약물</p>
-            <p>시안 총 7종</p>
-            <p>제목용 and 본문용 2종 납품</p>
+            {estimatesList[2]?.texts?.slice(1).map((item) => (
+              <p>{item}</p>
+            ))}
           </div>
           <div className="estimate_download">
             <Link
@@ -70,14 +73,12 @@ function Estimate(props) {
         <div className="estimate_chart_content">
           <div className="estimate_chart_content_option">
             <h2>프리미엄플러스</h2>
-            <p>(1천2백만원)</p>
+            <p>{estimatesList[3]?.texts[0]}</p>
           </div>
           <div className="estimate_chart_content_title">
-            <p>국문 2,350자</p>
-            <p>상용 외 빈출자 322자</p>
-            <p>영문/숫자/약물</p>
-            <p>시안 총 7종</p>
-            <p>제목용 and 본문용 2종 납품</p>
+            {estimatesList[3]?.texts?.slice(1).map((item) => (
+              <p>{item}</p>
+            ))}
           </div>
           <div className="estimate_download">
             <Link

@@ -13,6 +13,8 @@ import AdminPage from "./Components/AdminPage/AdminPage";
 import AdminEdit from "./Components/AdminPage/AdminEdit";
 import PortfolioDetail from "./Components/BrandFont/PortfolioDetail";
 import Footer from "./Components/Home/Footer";
+import EstimatesUpload from "./Components/AdminPage/EstimatesUpload";
+import EstimatesEdit from "./Components/AdminPage/EstimatesEdit";
 
 function App() {
   return (
@@ -30,6 +32,16 @@ function App() {
           <PrivateRouter path="/admin" exact component={AdminPage} />
           <PrivateRouter path="/admin_edit/:id" exact component={AdminEdit} />
           <PrivateRouter path="/admin_upload" exact component={AdminUpload} />
+          <PrivateRouter
+            path="/estimates_edit"
+            exact
+            component={EstimatesEdit}
+          />
+          <PrivateRouter
+            path="/estimates_upload"
+            exact
+            component={EstimatesUpload}
+          />
         </Switch>
         <Footer />
       </Router>

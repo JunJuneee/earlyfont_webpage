@@ -41,6 +41,10 @@
   width: 75px;
   height: 75px;
 }
+.footer_license {
+  display: flex;
+  cursor: pointer;
+}
 @media screen and (max-width: 960px) {
   .footer_container {
     flex-direction: column;

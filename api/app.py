@@ -42,6 +42,18 @@ class Uploads(db.Model):
     def __repr__(self):
         return f"Uploads(title : {self.title},date : {self.date})"
 
+class EstimatesTexts(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    texts = db.Column(db.Text, nullable=False)
+    
+    def serializer(estimates):
+        return {
+            'id': estimates.id,
+            'texts' : [x.strip() for x in estimates.texts.split('?')]
+        }
+    def __repr__(self):
+        return f"EstimatesTexts( id : {self.id}, texts : {self.texts.replace('?',' ')})"
+
 @app.route('/admin')
 @app.route('/branding')
 @app.route('/portfolio')
@@ -88,6 +100,31 @@ def upload():
     db.session.commit()
 
     return jsonify({'success':'등록되었습니다!'})
+
+@app.route('/api/estimates_upload',methods=['GET','POST'])
+def estimates_upload():
+    name_dict = {1:'Earlyfont_basic.docx',2:'Earlyfont_basicPlus.docx',3:'Earlyfont_premium.docx',4:'Earlyfont_premiumPlus.docx'}
+    for i in range(1,5):
+        file = request.files.get(f"file{i}")
+        file.save(name_dict[i])
+    refresh_estimate()
+
+    return jsonify({'success':'등록되었습니다!'})
+
+@app.route('/api/estimates_edit',methods=['GET','POST'])
+def estimates_edit():
+    if request.method == 'GET':
+        lists = EstimatesTexts.query.all()
+        return jsonify({'estimates_lists':[*map(EstimatesTexts.serializer,lists)]})
+    
+    if request.method == 'POST':
+        request_data = json.loads(request.data)
+        for i in range(1,5):    
+            edit = EstimatesTexts.query.filter_by(id=i).first()
+            edit.texts = request_data[f"text{i}"]
+        db.session.commit()
+        return jsonify({'success':'변경되었습니다!'})
+
 
 @app.route('/api/edit',methods=['GET','POST'])
 def edit():

@@ -3,6 +3,12 @@
   margin: auto;
   padding: 3rem 0;
 }
+.estimate_edit {
+  width: 70%;
+  margin: auto;
+  height: 76vh;
+  display: flex;
+}
 .estimate_chart {
   display: flex;
   text-align: center;
@@ -108,6 +114,10 @@
 .introFont_moveLink > a > img {
   width: 100%;
   max-width: 150px;
+}
+.estimate_text {
+  margin-top: 0.4rem;
+  font-size: 0.8rem;
 }
 @media screen and (max-width: 960px) {
   .estimate_chart {

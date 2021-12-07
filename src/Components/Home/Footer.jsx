@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Footer.css";
+import PolicyModal from "./Modals/PolicyModal";
 
 function Footer({ match }) {
+  const [open, setOpen] = useState(false);
+
   return (
     <div className="footer">
       <div className="footer_container">
@@ -24,7 +27,10 @@ function Footer({ match }) {
         </div>
         <div className="footer_right">
           <div className="footer_license">
-            <p>라이센스 / 이용약관 / 개인정보처리방침</p>
+            <p>라이센스 / </p>
+            <p onClick={() => setOpen(true)}>&nbsp;이용약관 / </p>
+            <p>&nbsp;개인정보처리방침</p>
+            <PolicyModal open={open} setOpen={setOpen} />
           </div>
           <div className="footer_kakao_container">
             <img src="/Images/kakao_logo.png" alt="" />

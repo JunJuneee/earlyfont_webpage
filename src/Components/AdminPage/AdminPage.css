@@ -3,6 +3,10 @@
   margin: auto;
   padding: 4rem;
 }
+.estimate_buttons {
+  display: flex;
+  justify-content: flex-end;
+}
 .adminSingleList {
   width: 100%;
 }
