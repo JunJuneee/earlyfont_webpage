@@ -107,7 +107,6 @@ def estimates_upload():
     for i in range(1,5):
         file = request.files.get(f"file{i}")
         file.save(name_dict[i])
-    refresh_estimate()
 
     return jsonify({'success':'등록되었습니다!'})
 
@@ -119,7 +118,7 @@ def estimates_edit():
     
     if request.method == 'POST':
         request_data = json.loads(request.data)
-        for i in range(1,5):    
+        for i in range(1,8):    
             edit = EstimatesTexts.query.filter_by(id=i).first()
             edit.texts = request_data[f"text{i}"]
         db.session.commit()

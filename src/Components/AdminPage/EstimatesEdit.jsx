@@ -7,6 +7,9 @@ function EstimatesEdit({ history }) {
   const [text2, setText2] = useState("");
   const [text3, setText3] = useState("");
   const [text4, setText4] = useState("");
+  const [text5, setText5] = useState("");
+  const [text6, setText6] = useState("");
+  const [text7, setText7] = useState("");
 
   useEffect(() => {
     axios.get("/api/estimates_edit").then((res) => {
@@ -14,6 +17,9 @@ function EstimatesEdit({ history }) {
       setText2(res.data.estimates_lists[1].texts.join("?"));
       setText3(res.data.estimates_lists[2].texts.join("?"));
       setText4(res.data.estimates_lists[3].texts.join("?"));
+      setText5(res.data.estimates_lists[4].texts.join("?"));
+      setText6(res.data.estimates_lists[5].texts.join("?"));
+      setText7(res.data.estimates_lists[6].texts.join("?"));
     });
   }, []);
   const onSubmit = (e) => {
@@ -24,6 +30,9 @@ function EstimatesEdit({ history }) {
         text2,
         text3,
         text4,
+        text5,
+        text6,
+        text7,
       })
       .then((res) => {
         alert(res.data.success);
@@ -55,6 +64,21 @@ function EstimatesEdit({ history }) {
           label="프리미엄플러스"
           value={text4 || ""}
           onChange={(e) => setText4(e.target.value)}
+        />
+        <TextField
+          label="Notice"
+          value={text5 || ""}
+          onChange={(e) => setText5(e.target.value)}
+        />
+        <TextField
+          label="Contact"
+          value={text6 || ""}
+          onChange={(e) => setText6(e.target.value)}
+        />
+        <TextField
+          label="Footer"
+          value={text7 || ""}
+          onChange={(e) => setText7(e.target.value)}
         />
 
         <Button type="submit">저장</Button>
