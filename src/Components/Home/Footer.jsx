@@ -1,10 +1,12 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "./Footer.css";
+import LicenseModal from "./Modals/LicenseModal";
 import PolicyModal from "./Modals/PolicyModal";
 
 function Footer({ match }) {
   const [open, setOpen] = useState(false);
+  const [open2, setOpen2] = useState(false);
   const [footerText, setFooterText] = useState([]);
 
   useEffect(() => {
@@ -12,7 +14,6 @@ function Footer({ match }) {
       setFooterText(res.data.estimates_lists[6].texts);
     });
   }, []);
-  console.log(footerText);
   return (
     <div className="footer">
       <div className="footer_container">
@@ -29,8 +30,9 @@ function Footer({ match }) {
         <div className="footer_right">
           <div className="footer_license">
             <p onClick={() => setOpen(true)}>&nbsp;라이센스 및 이용약관 / </p>
-            <p>&nbsp;개인정보처리방침</p>
-            <PolicyModal open={open} setOpen={setOpen} />
+            <p onClick={() => setOpen2(true)}>&nbsp;개인정보처리방침</p>
+            <LicenseModal open={open} setOpen={setOpen} />
+            <PolicyModal open={open2} setOpen={setOpen2} />
           </div>
           <div className="footer_kakao_container">
             <img src="/Images/kakao_logo.png" alt="" />
