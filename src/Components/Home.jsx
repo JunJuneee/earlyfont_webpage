@@ -7,7 +7,6 @@ import End from "./Home/End";
 
 function Home() {
   const [starEndHeight, setStarEndHeight] = useState(0);
-
   useEffect(() => {
     // 사진 프리로드
     const img = new Image();

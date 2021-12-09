@@ -3,7 +3,7 @@ import "./Header.css";
 import { Link, NavLink } from "react-router-dom";
 import { MenuOutlined, Clear } from "@material-ui/icons";
 
-function Header(props) {
+function Header() {
   const ref = useRef();
 
   const [headerColorFlip, setHeaderColorFlip] = useState(false);
@@ -16,16 +16,15 @@ function Header(props) {
       setHeaderColorFlip(false);
     }
   };
-
-  useEffect(() => {
-    if (window.location.pathname === "/") {
+  const flipColor = () => {
+    if (window.location.pathname === "/" && window.innerWidth >= 960) {
       setHeaderColorFlip(true);
     } else {
       setHeaderColorFlip(false);
     }
-    if (window.innerWidth <= 960) {
-      setHeaderColorFlip(false);
-    }
+  };
+  useEffect(() => {
+    flipColor();
   }, []);
 
   useEffect(() => {
@@ -51,7 +50,7 @@ function Header(props) {
         <Link
           to="/"
           onClick={() => {
-            setHeaderColorFlip(true);
+            flipColor();
             setClick(false);
           }}
         >
