@@ -1,11 +1,11 @@
 import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import ReactJWPlayer from "react-jw-player";
 import "./Branding.css";
 
 function Branding(props) {
   const title_ref = useRef();
   const content1 = useRef();
-
   const handleScroll = () => {
     const currentScrollY = window.scrollY;
     if (
@@ -113,8 +113,15 @@ function Branding(props) {
       </div>
       <div className="branding_font">
         <div className="branding_font_texts">
+          <ReactJWPlayer
+            className="branding_video"
+            playerScript="https://cdn.jwplayer.com/libraries/LVdiUjrg.js"
+            playlist="https://cdn.jwplayer.com/v2/playlists/8Ep6bIRY"
+            isAutoPlay={true}
+            isMuted={true}
+          />
           <h1>의도한 브랜딩 목표를 달성하는 얼리폰트</h1>
-          <img src="/Images/branding.png" alt="" />
+          <img src="Images/branding.png" alt="" />
           <p>
             얼리폰트는 고딕계열의 폰트뿐만 아니라 명조체, 캘리그라피 등 모든
             형태의 폰트디자인 구현이 가능합니다.
