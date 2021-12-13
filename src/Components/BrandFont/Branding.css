@@ -292,6 +292,9 @@
   background: #181863;
 }
 @media screen and (max-width: 960px) {
+  .branding_video {
+    width: 100%;
+  }
   .branding_banner {
     padding: 9rem 1rem 7rem;
   }
