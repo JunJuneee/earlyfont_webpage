@@ -34,13 +34,18 @@ function Footer({ match }) {
             <LicenseModal open={open} setOpen={setOpen} />
             <PolicyModal open={open2} setOpen={setOpen2} />
           </div>
-          <div className="footer_kakao_container">
+          <a
+            class="footer_kakao_container"
+            href="http://pf.kakao.com/_RwrQs"
+            target="_blank"
+            aria-label="kaokao_link"
+          >
             <img src="/Images/kakao_logo.png" alt="" />
             <div className="footer_right_texts">
               <p>카카오톡 1:1 상담(10AM~18PM)</p>
               <p>플러스친구 ID @EARLYFONT</p>
             </div>
-          </div>
+          </a>
         </div>
       </div>
     </div>

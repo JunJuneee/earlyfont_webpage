@@ -36,6 +36,12 @@
 .footer_kakao_container {
   display: flex;
   align-items: center;
+  text-decoration: none;
+  color: white;
+  margin-top: 1rem;
+}
+.footer_kakao_container:hover {
+  color: #f9e000;
 }
 .footer_kakao_container > img {
   width: 75px;
